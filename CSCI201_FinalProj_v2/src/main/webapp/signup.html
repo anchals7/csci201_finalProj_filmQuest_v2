@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1" />
+        <title style="font-family: lexend mega">FilmQuest</title>
+        <link rel="stylesheet" type="text/css" href="signup.css" />
+    </head>
+    <body>
+        <header id="TopBar">
+            <div id="Logo">
+                <img
+                    id="Logo"
+                    src="images/Logo.png"
+                    style="width: 328px; height: 56px; border: none" />
+            </div>
+
+            <div id="Buttons">
+                <img src="images/AccountIcon.png" />
+                <button id="LoginButton" onclick="GoHome()">
+                    Login / Create Account
+                </button>
+                <img src="images/SearchIcon.png" />
+                <button id="SearchButton">Search for Movies</button>
+            </div>
+        </header>
+        <main id="Boxes">
+            <form id="Signup">
+                <h1 id="Welcome">Create Account</h1>
+                <br />
+                <div id="fname">
+                    <p>Enter First Name:</p>
+                    <input type="text" id="FirstName" />
+                </div>
+                <br />
+                <!--USE TABLE ROWS-->
+                <div id="lname">
+                    <p>Enter Last Name:</p>
+                    <input type="text" id="LastName" />
+                </div>
+                <br />
+                <div id="uname">
+                    <p>Enter Username:</p>
+                    <input type="text" id="Username" />
+                </div>
+                <br />
+                <div id="pword">
+                    <p>Enter Password:</p>
+                    <input type="password" id="Password" />
+                </div>
+                <br />
+                <div id="cfpword">
+                    <p>Re-Enter Password:</p>
+                    <input type="password" id="ConfirmPassword" />
+                </div>
+                <br />
+                <input type="submit" id="Submit" value="REGISTER" />
+            </form>
+        </main>
+        <script src="login.js"></script>
+    </body>
+</html>
