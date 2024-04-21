@@ -1,27 +1,25 @@
 package CSCI201_FinalProject;
 
-import java.util.HashMap;
 
-public class Movie {
+class Movie {
 	
-	private int MovieID;
+	
+	private int movieID;
 	
 	private String title;
 	
-	private double rating;
+	private String synopsis;
 	
-	private int views;
+	private Float rating;
 	
-	private String summary;
-	
-	HashMap<Integer, String> Reviews;
-	
-	public Movie(String t, double r, String s, int v) {
-		this.title = t;
-		this.rating = r;
-		this.summary = s;
-		this.views = v;
-		this.Reviews = new HashMap<Integer, String>();
+	private String genre;
+
+	public int getMovieID() {
+		return movieID;
+	}
+
+	public void setMovieID(int movieID) {
+		this.movieID = movieID;
 	}
 
 	public String getTitle() {
@@ -32,45 +30,31 @@ public class Movie {
 		this.title = title;
 	}
 
-	public double getRating() {
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+	public Float getRating() {
 		return rating;
 	}
 
-	public void setRating(double rating) {
+	public void setRating(Float rating) {
 		this.rating = rating;
 	}
 
-	public String getSummary() {
-		return summary;
+	public String getGenre() {
+		return genre;
 	}
 
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-
-	public int getViews() {
-		return views;
-	}
-
-	public void setViews(int views) {
-		this.views = views;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	
-	public void AddReview(Integer userID, String review) {
-		Reviews.put(userID, review);
-	}
 	
-	public void Rate(int r) {
-		views++;
-		rating = ((rating * views) + r) / views;
-	}
-
-	public int getMovieID() {
-		return MovieID;
-	}
-
-	public void setMovieID(int movieID) {
-		MovieID = movieID;
-	}	
+	
 	
 }
