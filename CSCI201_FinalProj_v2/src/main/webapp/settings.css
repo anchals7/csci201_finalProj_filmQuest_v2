@@ -1,0 +1,242 @@
+body{
+	background-color: black;
+}
+
+#header h1{
+	font-family: "Lexend Mega", sans-serif;
+	color: white;
+	float: left;
+	margin-top: 17px;
+	padding-top: 0px;
+}
+
+#logo {
+	display: inline-block;
+}
+
+#logo img {
+	width: 57px;
+	height: auto;
+	margin-top: 5px;
+	margin-left: 7px;
+	float: left;
+}
+
+#menu-items{
+	display: inline-block;
+	float: right;
+}
+
+.menu-item {
+	float: right;
+}
+
+.menu-item a{
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+  	font-weight: 400;
+  	font-style: normal;
+  	font-size: 25px;
+  	color: white;
+  	float: left;
+  	margin-top: 23px;
+  	margin-right: 35px;
+  	text-decoration: none;
+}
+
+.menu-item:hover a{
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+  	font-weight: 400;
+  	font-style: normal;
+  	font-size: 25px;
+  	color: white;
+  	float: left;
+  	margin-top: 23px;
+  	margin-right: 35px;
+  	text-decoration: underline;
+}
+
+
+.menu-item img{
+	width: 31px;
+	height: auto;
+	float: left;
+	margin-top: 23px;
+	margin-right: 5px;
+}
+
+#profile-user{
+	color: white;
+	margin-top: 35px;
+}
+
+#profile-user img{
+	width: 115px;
+	height: auto;
+	float: left;
+	margin-left: 45px;
+}
+
+#profile-user-info {
+	float: left;
+}
+
+#profile-user-info h2{
+	margin-top: 35px;
+	margin-bottom: 0px;
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+	font-weight: 400;
+
+}
+
+#profile-user-info p{
+	margin-top: 5px;
+	margin-bottom: 0px;
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+	font-weight: 300;
+	font-size: 21px;
+}
+
+#profile-menu {
+	background-color: #B39BC7;
+	float: none;
+	margin-top: 170px;
+	width: 1200px;
+	margin-top: 170px;
+	margin-bottom: 39px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile-menu-item {
+	color: #BBAAC9;
+	background-color: #7E6791;
+	display: inline-block;
+	width: 170px;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.profile-menu-item a{
+	font-family: "Gentium Book Plus", serif;
+	font-size: 21px;
+	margin: 7px;
+	padding: 7px;
+	text-decoration: none;
+	color: #BBAAC9;
+}
+
+.profile-menu-item:hover a{
+	text-decoration: underline;
+}
+
+#active{
+	color: #EEE8A9;
+	background-color: #9E4300;
+}
+
+#active a{
+	color: #EEE8A9;
+}
+
+#my-reviews {
+	background-color: #90674A;
+	margin: 5px auto;
+	width: 1200px;
+	height: 390px;
+}
+
+#my-recs {
+	background-color: #90674A;
+	margin: 5px auto;
+	width: 1200px;
+	height: 390px;
+}
+
+#my-reviews h1 {
+	color: #324A51;
+	padding-top: 13px;
+	padding-left: 21px;
+	margin-bottom: 7px;
+	font-family: "Graduate", serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+#my-recs h1 {
+	color: #324A51;
+	padding-top: 13px;
+	padding-left: 21px;
+	margin-bottom: 7px;
+	font-family: "Graduate", serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+#my-reviews h6 {
+	color: #324A51;
+	display: block;
+	padding-top: 261px;
+	margin-left: 19px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-family: "Halant", serif;
+  	font-weight: 600;
+  	font-size: 17px;
+}
+
+#my-recs h6 {
+	color: #324A51;
+	display: block;
+	padding-top: 261px;
+	margin-left: 19px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-family: "Halant", serif;
+  	font-weight: 600;
+  	font-size: 17px;
+}
+
+.review-item{
+	float: left;
+	margin-left: 90px;
+	text-align: center;
+	margin-top: 9px;
+}
+
+.review-item p{
+	color: #005B8F;
+	margin-bottom: 1px;
+	margin-top: 7px;
+	padding: 0px;
+	font-family: "Halant", serif;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+.review-item img{
+	width: 130px;
+	height: auto;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#footer{
+	margin-top: 35px;
+	background-color: #324A51;
+	color: white;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 3px;
+	font-family: "Exo", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+#footer p{
+	padding: 15px;
+	margin: 0px;
+}
+
