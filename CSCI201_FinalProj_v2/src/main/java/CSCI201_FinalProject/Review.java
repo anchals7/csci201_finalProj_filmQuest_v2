@@ -1,3 +1,5 @@
+package CSCI201_FinalProject;
+
 import java.sql.Date;
 
 class Review {

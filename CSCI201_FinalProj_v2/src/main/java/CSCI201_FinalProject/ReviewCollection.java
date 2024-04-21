@@ -1,3 +1,6 @@
+package CSCI201_FinalProject;
+
+
 import java.util.List;
 
 class ReviewCollection{
