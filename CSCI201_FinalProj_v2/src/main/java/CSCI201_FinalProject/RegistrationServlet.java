@@ -52,8 +52,10 @@ public class RegistrationServlet extends HttpServlet {
 				out.println("added user to database");
 			}
 			
+			
 			out.flush();
 			out.close();
+			//basic registration servlet
 			
 		}
 		catch(SQLException sqle) {
