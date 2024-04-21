@@ -1,0 +1,103 @@
+@charset "ISO-8859-1";
+
+body {
+    margin: 0;
+    background-color: #c2997a;
+}
+
+#TopBar {
+    background-color: black;
+    color: white;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+#Logo {
+    display: inline-flex;
+}
+
+#Buttons {
+    display: inline-flex;
+    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+#Welcome {
+    font-family: "DM Serif Display";
+    text-align: center;
+    font-style: italic;
+    font-size: 42px;
+    color: #d4ac8d;
+}
+
+#Username,
+#Password {
+    font-size: 15px;
+    color: #bdc3c5;
+}
+
+#Buttons button {
+    background-color: black;
+    font-family: "Tahoma";
+    color: white;
+    border: none;
+}
+
+#TopBar h1 {
+    display: inline;
+    font-family: "Arial";
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#Boxes {
+    display: flex;
+    justify-content: center;
+    font-family: "Tahoma";
+    color: gray;
+}
+
+#Login {
+    display: block;
+    margin-top: 92px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #8b6648;
+    align-content: center;
+    align-items: center;
+    
+}
+
+#Account {
+    width: 140px;
+    height: 140px;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Submit {
+    background-color: #944404;
+    color: #e8e09f;
+    border: none;
+    font-family: "Tahoma";
+    margin: 10px 60px 27px 60px;
+    height: 41px;
+    width: 236px;
+    font-size: 23px;
+}
+
+#Username,
+#Password {
+    width: 230px;
+    height: 30px;
+    font-size: 17px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+}
