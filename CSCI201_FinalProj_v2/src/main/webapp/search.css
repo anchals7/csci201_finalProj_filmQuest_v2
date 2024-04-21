@@ -137,7 +137,6 @@ body{
     float:left;
   }
 
-  
 
   .results-container {
     background-color: #91705a;
@@ -175,31 +174,13 @@ body{
 
  
 
-  .result-col-1 {
+  .result-col {
     display: flex;
     flex-direction: column;
     line-height: normal;
     width: 33%;
     margin:0;
     padding: 0;
-  }
-
-  
-
-  .result-col-2 {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 33%;
-    margin:0;
-  }
-
-  .result-col-3 {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 33%;
-    margin:0;
   }
   
   .result-item {
@@ -220,8 +201,6 @@ body{
     cursor: pointer;
   }
 
-  
-
   .result-image {
     width:90%;
     height:auto;
@@ -237,9 +216,6 @@ body{
   }
 
   
-
-
-
 
   .view-more {
     color: #fff;
