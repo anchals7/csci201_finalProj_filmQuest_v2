@@ -2,73 +2,74 @@ body{
 	margin:0;
 	padding:0;
 	width: 100%;
-	
+	background-color:black;
 	}
 
-  .content {
-    background-color: #040404;
-    display: flex;
-   	width:100%;
-    flex-direction: column;
-    margin:0;
-  }
+body{
+	background-color: black;
+}
 
-  .header {
-    align-self: center;
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    color: #fff;
-    padding: 0;
-    margin:0;
-  }
+#header h1{
+	font-family: "Lexend Mega", sans-serif;
+	color: white;
+	float: left;
+	margin-top: 17px;
+	padding-top: 0px;
+}
 
-  
+#logo {
+	display: inline-block;
+}
 
-  .logo {
-    flex-grow: 1;
-    flex-basis: auto;
-    font: 600 45px "Lexend Mega", sans-serif;
-    padding-left: 30px;
-  }
+#logo img {
+	width: 57px;
+	height: auto;
+	margin-top: 5px;
+	margin-left: 7px;
+	float: left;
+}
 
-  
+#menu-items{
+	display: inline-block;
+	float: right;
+}
 
-  .nav {
-    align-self: start;
-    display: flex;
-    align-items: start;
-    gap: 20px;
-    font-size: 25px;
-    font-weight: 400;
-    justify-content: space-between;
-    margin:0;
-    padding-top:40px;
-    padding-right:40px;
-  }
+.menu-item {
+	float: right;
+}
 
-  .profile-link {
-    display: flex;
-    gap: 4px;
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    padding: 0;
-  }
+.menu-item a{
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+  	font-weight: 400;
+  	font-style: normal;
+  	font-size: 25px;
+  	color: white;
+  	float: left;
+  	margin-top: 23px;
+  	margin-right: 35px;
+  	text-decoration: none;
+}
 
-  .profile-icon {
-    aspect-ratio: 1.25;
-    object-fit: auto;
-    object-position: center;
-    width: 44px;
-  }
+.menu-item:hover a{
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+  	font-weight: 400;
+  	font-style: normal;
+  	font-size: 25px;
+  	color: white;
+  	float: left;
+  	margin-top: 23px;
+  	margin-right: 35px;
+  	text-decoration: underline;
+}
 
-  .profile-text {
-    font-family: "Fira Sans Extra Condensed", -apple-system, Roboto, Helvetica, sans-serif;
-    margin: auto 0;
-  }
+
+.menu-item img{
+	width: 31px;
+	height: auto;
+	float: left;
+	margin-top: 23px;
+	margin-right: 5px;
+}
 
   .search-link {
     display: flex;
@@ -96,17 +97,19 @@ body{
   }
 
   .search-bar {
-    background-color: #b39bc7;
-    align-self: center;
-    display: flex;
-    margin-top: 144px;
-    width: 100%;
-    max-width: 1390px;
-    padding-left: 15px;
-    gap: 15px;
-    font-size: 31px;
+    align-content:center;
+    margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left: 12%;
+    font-size: 30px;
     color: #eee8a9;
     font-weight: 400;
+
+  }
+  
+  ::placeholder{
+  	color:black;
   }
 
 
@@ -115,7 +118,8 @@ body{
     object-fit: auto;
     object-position: center;
     width: 35px;
-    margin: auto 0;
+    margin: 0;
+    float:left;
   }
 
   .search-input {
@@ -125,10 +129,12 @@ body{
     align-items: start;
     justify-content: center;
     flex-grow: 1;
-    width: fit-content;
+    width: 80%;
     padding: 11px 19px;
     border: none;
     color: inherit;
+    margin:0;
+    float:left;
   }
 
   
@@ -146,15 +152,17 @@ body{
 
 	.search-results{
 	 color:#FFE9D0;
-	 font-size:70px;
+	 font-size:3.5em;
 	 padding:0 0 0 50px;
+	 margin-bottom:0px;
+	 text-decoration:underline;
 	}
  
 
   .results-grid {
     width: 90%;
     margin: 0 auto;
-    padding:0;
+    padding:10px;
   }
 
   
@@ -186,10 +194,17 @@ body{
     margin:0;
   }
 
+  .result-col-3 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+    margin:0;
+  }
   
   .result-item {
     display: flex;
-    margin-top: 78px;
+    margin-top: 20px;
     margin-left:0;
     margin-right:0;
     width:100%;
@@ -208,47 +223,55 @@ body{
   
 
   .result-image {
-    width:500px;
+    width:90%;
     height:auto;
+    margin:0 auto;
   }
 
   .result-title {
     font-family: "Fanwood Text", sans-serif;
     margin-top: 46px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:1em;
   }
 
   
 
-  .result-col-3 {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 33%;
-    margin:0;
-  }
+
 
 
   .view-more {
     color: #fff;
     align-self: start;
-    margin: 95px 0 0 26px;
+    margin-top:20px;
     font: italic 400 33px "Fanwood Text", -apple-system, Roboto, Helvetica, sans-serif;
     background: none;
     border: none;
-    padding: 0 0 60px 0;
+    padding: 20px 0px 10px 40px;
   }
 
   
 
-  .footer {
-    background-color: #324a51;
-    margin-top: 60px;
-    
-    align-items: start;
-    color: #fff;
-    justify-content: center;
-    padding: 20px 0px 20px 20px;
-    font: 400 23px "Exo", sans-serif;
-  }
+  #footer{
+	margin-top: 35px;
+	background-color: #324A51;
+	color: white;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 3px;
+	font-family: "Exo", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+#footer p{
+	padding: 15px;
+	margin: 0px;
+}
+
 
   

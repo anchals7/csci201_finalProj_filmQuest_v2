@@ -8,19 +8,27 @@
 </head>
 <body>
 <div class="content">
-  <header class="header">
-    <h1 class="logo">FilmQuest</h1>
-    <nav class="nav">
-      <button class="profile-link" onclick="handleProfileClick()">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/93eeb52fbe6dd66df1c95e1bcd8cd99973fee4a1b83d962e52b6676c7e73f41f?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Profile icon" class="profile-icon" />
-        <span class="profile-text">My Profile</span>
-      </button>
-      <button class="search-link" onclick="handleSearchClick()">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="search-icon" />
-        <span class="search-text">Search For Movies</span>
-      </button>
-    </nav>
-  </header>
+  <div id="header">
+            <div id="logo">
+                <img src="images/quest_logo.png" alt="Website-Logo">
+                <h1>FilmQuest</h1>
+            </div>
+            <div id="menu-items">
+                <div class="menu-item">
+                    <img src="images/profile_menu_holder.png" alt="My-Profile-Logo">
+                    <a href="profile.html">My Profile</a>
+                </div>
+                <div class="menu-item">
+                    <img src="images/search.png" alt="Search-Logo">
+                    <a href="search.html">Search For Movies</a>
+                </div>
+                <div class="menu-item">
+                    <img src="images/rating.png" alt="Ratings-Reviews-Logo">
+                    <a href="myreviews.html">My Reviews</a>
+                </div>
+            </div>
+        </div>
+        
   <form class="search-bar" onsubmit="handleSearchSubmit(event)">
     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="search-bar-icon" />
     <input type="text" class="search-input" placeholder="Search Keyword" aria-label="Search Keyword" />
@@ -63,9 +71,9 @@
     </div>
     <button class="view-more" onclick="handleViewMoreClick()">View more results...</button>
   </main>
-  <footer class="footer">
-    @FilmQuest distributed by USC CSCI 201
-  </footer>
+  <div id="footer">
+            <p>@FilmQuest distributed by USC CSCI 201</p>
+      </div>
 </div>
 </body>
 </html>
