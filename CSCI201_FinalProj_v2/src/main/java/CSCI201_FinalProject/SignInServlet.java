@@ -44,7 +44,11 @@ public class SignInServlet extends HttpServlet {
 			else {
 				
 				
-				out.println("valid sign in");
+				rs2 = st2.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
+				rs2.next();
+
+				int userID = rs2.getInt("user_id");
+				out.println(userID);
 			}
 			
 			out.flush();
