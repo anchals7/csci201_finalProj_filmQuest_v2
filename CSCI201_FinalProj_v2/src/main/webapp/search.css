@@ -1,0 +1,254 @@
+body{
+	margin:0;
+	padding:0;
+	width: 100%;
+	
+	}
+
+  .content {
+    background-color: #040404;
+    display: flex;
+   	width:100%;
+    flex-direction: column;
+    margin:0;
+  }
+
+  .header {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    color: #fff;
+    padding: 0;
+    margin:0;
+  }
+
+  
+
+  .logo {
+    flex-grow: 1;
+    flex-basis: auto;
+    font: 600 45px "Lexend Mega", sans-serif;
+    padding-left: 30px;
+  }
+
+  
+
+  .nav {
+    align-self: start;
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    font-size: 25px;
+    font-weight: 400;
+    justify-content: space-between;
+    margin:0;
+    padding-top:40px;
+    padding-right:40px;
+  }
+
+  .profile-link {
+    display: flex;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .profile-icon {
+    aspect-ratio: 1.25;
+    object-fit: auto;
+    object-position: center;
+    width: 44px;
+  }
+
+  .profile-text {
+    font-family: "Fira Sans Extra Condensed", -apple-system, Roboto, Helvetica, sans-serif;
+    margin: auto 0;
+  }
+
+  .search-link {
+    display: flex;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .search-icon {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 35px;
+  }
+
+  .search-text {
+    font-family: "Fira Sans Extra Condensed", -apple-system, Roboto, Helvetica, sans-serif;
+    flex-grow: 1;
+    flex-basis: auto;
+    margin: auto 0;
+  }
+
+  .search-bar {
+    background-color: #b39bc7;
+    align-self: center;
+    display: flex;
+    margin-top: 144px;
+    width: 100%;
+    max-width: 1390px;
+    padding-left: 15px;
+    gap: 15px;
+    font-size: 31px;
+    color: #eee8a9;
+    font-weight: 400;
+  }
+
+
+  .search-bar-icon {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 35px;
+    margin: auto 0;
+  }
+
+  .search-input {
+    font-family: "Gentium Book Basic", -apple-system, Roboto, Helvetica, sans-serif;
+    font-style: italic;
+    background-color: #7e6791;
+    align-items: start;
+    justify-content: center;
+    flex-grow: 1;
+    width: fit-content;
+    padding: 11px 19px;
+    border: none;
+    color: inherit;
+  }
+
+  
+
+  .results-container {
+    background-color: #91705a;
+    display: flex;
+    margin-top: 36px;
+    width: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+    align-content:center;
+    padding:0;
+  }
+
+	.search-results{
+	 color:#FFE9D0;
+	 font-size:70px;
+	 padding:0 0 0 50px;
+	}
+ 
+
+  .results-grid {
+    width: 90%;
+    margin: 0 auto;
+    padding:0;
+  }
+
+  
+
+  .results-row {
+    gap: 0;
+    display: flex;
+    margin: 0 auto;
+  }
+
+ 
+
+  .result-col-1 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+    margin:0;
+    padding: 0;
+  }
+
+  
+
+  .result-col-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+    margin:0;
+  }
+
+  
+  .result-item {
+    display: flex;
+    margin-top: 78px;
+    margin-left:0;
+    margin-right:0;
+    width:100%;
+    flex-grow: 1;
+    flex-direction: column;
+    font-size: 33px;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  
+
+  .result-image {
+    width:500px;
+    height:auto;
+  }
+
+  .result-title {
+    font-family: "Fanwood Text", sans-serif;
+    margin-top: 46px;
+  }
+
+  
+
+  .result-col-3 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+    margin:0;
+  }
+
+
+  .view-more {
+    color: #fff;
+    align-self: start;
+    margin: 95px 0 0 26px;
+    font: italic 400 33px "Fanwood Text", -apple-system, Roboto, Helvetica, sans-serif;
+    background: none;
+    border: none;
+    padding: 0 0 60px 0;
+  }
+
+  
+
+  .footer {
+    background-color: #324a51;
+    margin-top: 60px;
+    
+    align-items: start;
+    color: #fff;
+    justify-content: center;
+    padding: 20px 0px 20px 20px;
+    font: 400 23px "Exo", sans-serif;
+  }
+
+  
