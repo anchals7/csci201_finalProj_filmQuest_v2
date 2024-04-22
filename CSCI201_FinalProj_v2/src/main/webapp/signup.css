@@ -33,12 +33,6 @@ body {
     color: #d4ac8d;
 }
 
-#Username,
-#Password {
-    font-size: 15px;
-    color: #bdc3c5;
-}
-
 #Buttons button {
     background-color: black;
     font-family: "Tahoma";
@@ -67,16 +61,9 @@ body {
     margin-right: auto;
     background-color: #8b6648;
     align-content: center;
-    align-items: center;
-}
-
-#fname,
-#lname,
-#uname,
-#pword,
-#cfpword {
-    display: inline-flex;
-    /*display: contents;*/
+    /*align-items: center;*/
+    width: 600px;
+    height: 500px;
 }
 
 #Account {
@@ -88,45 +75,43 @@ body {
     margin-right: auto;
 }
 
+#Field {
+    display: flex;
+    /*justify-content: space-between;*/
+}
+
+#Text {
+    color: #e8e09f;
+    width: 182px;
+    font-size: 18px;
+    line-height: 37px;
+    margin-left: 35px;
+}
+
+#Input {
+    margin-top: 17px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    width: 214px;
+    height: 256px;
+    font-size: 17px;
+}
+
+.field {
+    height: 30px;
+    width: 225px;
+    font-size: 18px;
+    color: black;
+}
+
 #Submit {
     background-color: #944404;
     color: #e8e09f;
     border: none;
     font-family: "Tahoma";
-    margin: 10px 60px 27px 60px;
+    margin: 3px 0px 25px 218px;
     height: 41px;
-    width: 236px;
+    width: 231px;
     font-size: 23px;
-}
-
-#FirstName {
-    margin-left: 49px;
-}
-
-#LastName {
-    margin-left: 51px;
-    width: 176px;
-    height: 30px;
-    font-size: 17px;
-}
-
-#Username {
-    margin-left: 55px;
-}
-
-#Password {
-    margin-left: 59px;
-}
-
-#ConfirmPassword {
-    margin-left: 36px;
-}
-
-#FirstName,
-#Username,
-#Password,
-#ConfirmPassword {
-    width: 175px;
-    height: 30px;
-    font-size: 17px;
 }
