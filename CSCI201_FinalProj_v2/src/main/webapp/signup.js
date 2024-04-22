@@ -63,8 +63,18 @@ function signUp(name, email, username, password) {
             }
             return response.json();
         })
-        .then((json) => {
-            console.log(json);
+        .then((data) => {
+            console.log(data);
+            if (data === "This user does not exist") {
+                alert("ERROR: Invalid username.");
+            } else if (data === "Incorrect password") {
+                alert("ERROR: Invalid password.");
+            } else {
+                window.location.href = "index.html";
+                const id = { id: data };
+                const idJSON = JSON.stringify(id);
+                localStorage.setItem("userid", idJSON);
+            }
         })
         .catch(function (error) {
             console.log("request failed", error);

@@ -23,8 +23,10 @@ public class RegistrationServlet extends HttpServlet {
 		Connection conn = null;
 		Statement st = null;
 		Statement st2 = null;
+		Statement st3 = null;
 		ResultSet rs = null;
 		ResultSet rs2 = null;
+		ResultSet rs3 = null;
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -32,10 +34,10 @@ public class RegistrationServlet extends HttpServlet {
 			st = conn.createStatement();
 			st2 = conn.createStatement();
 			
-			String userName = request.getParameter("INSERT_USERNAME_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
-			String passWord = request.getParameter("INSERT_PASSWORD_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
-			String email = request.getParameter("INSERT_EMAIL_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
-			String displayName = request.getParameter("INSERT_DISPLAY-NAME_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
+			String userName = request.getParameter("username");
+			String passWord = request.getParameter("password");
+			String email = request.getParameter("email");
+			String displayName = request.getParameter("name");
 			
 			rs = st.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 			rs2 = st2.executeQuery("SELECT * FROM Users WHERE email = '" + email + "'");
@@ -49,9 +51,14 @@ public class RegistrationServlet extends HttpServlet {
 			}
 			else {
 				st.executeUpdate("INSERT INTO Users(Username, Password, Email, DisplayName) VALUES ('" + userName + "', '" + passWord + "', '" + email + "'," + displayName + ");");
-				out.println("added user to database");
+				
+				st3 = conn.createStatement();
+				rs3 = st3.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
+				rs3.next();
+
+				int userID = rs.getInt("user_id");
+				out.println(userID);
 			}
-			
 			
 			out.flush();
 			out.close();
@@ -85,8 +92,5 @@ public class RegistrationServlet extends HttpServlet {
 				sqle.printStackTrace();
 			}
 		}	
-
-		
-		
 	}
 }
