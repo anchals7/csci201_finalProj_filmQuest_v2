@@ -1,0 +1,117 @@
+@charset "ISO-8859-1";
+
+body {
+    margin: 0;
+    background-color: #c2997a;
+}
+
+#TopBar {
+    background-color: black;
+    color: white;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+#Logo {
+    display: inline-flex;
+}
+
+#Buttons {
+    display: inline-flex;
+    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+#Welcome {
+    font-family: "DM Serif Display";
+    text-align: center;
+    font-style: italic;
+    font-size: 42px;
+    color: #d4ac8d;
+}
+
+#Buttons button {
+    background-color: black;
+    font-family: "Tahoma";
+    color: white;
+    border: none;
+}
+
+#TopBar h1 {
+    display: inline;
+    font-family: "Arial";
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#Boxes {
+    display: flex;
+    justify-content: center;
+    font-family: "Tahoma";
+    color: gray;
+}
+
+#Signup {
+    display: block;
+    margin-top: 92px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #8b6648;
+    align-content: center;
+    /*align-items: center;*/
+    width: 600px;
+    height: 500px;
+}
+
+#Account {
+    width: 140px;
+    height: 140px;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Field {
+    display: flex;
+    /*justify-content: space-between;*/
+}
+
+#Text {
+    color: #e8e09f;
+    width: 182px;
+    font-size: 18px;
+    line-height: 37px;
+    margin-left: 35px;
+}
+
+#Input {
+    margin-top: 17px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    width: 214px;
+    height: 256px;
+    font-size: 17px;
+}
+
+.field {
+    height: 30px;
+    width: 225px;
+    font-size: 18px;
+    color: black;
+}
+
+#Submit {
+    background-color: #944404;
+    color: #e8e09f;
+    border: none;
+    font-family: "Tahoma";
+    margin: 3px 0px 25px 218px;
+    height: 41px;
+    width: 231px;
+    font-size: 23px;
+}
