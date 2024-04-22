@@ -27,33 +27,42 @@
             <form id="Signup">
                 <h1 id="Welcome">Create Account</h1>
                 <br />
-                <div id="fname">
-                    <p>Enter First Name:</p>
-                    <input type="text" id="FirstName" />
+
+                <div id="Field">
+                    <div id="Text">
+                        <p>Enter Name</p>
+                        <p>Enter Email</p>
+                        <p>Enter Username</p>
+                        <p>Enter Password</p>
+                        <p>Re-Enter Password</p>
+                    </div>
+
+                    <div id="Input">
+                        <!--<label for="FirstName">Enter First Name:</label>-->
+                        <input type="text" id="Name" class="field" />
+                        <br />
+
+                        <!--<label for="LastName">Enter Last Name:</label>-->
+                        <input type="email" id="Email" class="field" />
+                        <br />
+
+                        <!--<label for="Username">Enter Username:</label>-->
+                        <input type="text" id="Username" class="field" />
+                        <br />
+
+                        <!--<label for="Password">Enter Password:</label>-->
+                        <input type="password" id="Password" class="field" />
+                        <br />
+
+                        <!--<label for="ConfirmPassword">Re-Enter Password:</label>-->
+                        <input
+                            type="password"
+                            id="ConfirmPassword"
+                            class="field" />
+                    </div>
                 </div>
-                <br />
-                <!--USE TABLE ROWS-->
-                <div id="lname">
-                    <p>Enter Last Name:</p>
-                    <input type="text" id="LastName" />
-                </div>
-                <br />
-                <div id="uname">
-                    <p>Enter Username:</p>
-                    <input type="text" id="Username" />
-                </div>
-                <br />
-                <div id="pword">
-                    <p>Enter Password:</p>
-                    <input type="password" id="Password" />
-                </div>
-                <br />
-                <div id="cfpword">
-                    <p>Re-Enter Password:</p>
-                    <input type="password" id="ConfirmPassword" />
-                </div>
-                <br />
-                <input type="submit" id="Submit" value="REGISTER" />
+
+                <input type="submit" id="Submit" value="Create Account" />
             </form>
         </main>
         <script src="login.js"></script>
