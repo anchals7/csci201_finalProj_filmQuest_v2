@@ -1,16 +1,15 @@
 package CSCI201_FinalProject;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import java.sql.ResultSet;
 
 @WebServlet("/RegistrationOfUser")
 public class RegistrationServlet extends HttpServlet {
@@ -72,11 +71,8 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		finally {
 			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if(rs2 != null) {
-					rs2.close();
+				if (conn != null) {
+					conn.close();
 				}
 				if (st != null) {
 					st.close();
@@ -84,8 +80,14 @@ public class RegistrationServlet extends HttpServlet {
 				if(st2 != null) {
 					st2.close();
 				}
-				if (conn != null) {
-					conn.close();
+				if (rs != null) {
+					rs.close();
+				}
+				if(rs2 != null) {
+					rs2.close();
+				}
+				if (rs3 != null) {
+					rs3.close();
 				}
 			} 
 			catch (SQLException sqle) {
