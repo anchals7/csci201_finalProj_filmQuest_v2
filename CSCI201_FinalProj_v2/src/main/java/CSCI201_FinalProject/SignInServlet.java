@@ -1,16 +1,15 @@
 package CSCI201_FinalProject;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import java.sql.ResultSet;
 
 @WebServlet("/SignInOfUser")
 public class SignInServlet extends HttpServlet {
@@ -30,7 +29,6 @@ public class SignInServlet extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
 			st = conn.createStatement();
-			st2 = conn.createStatement();
 			
 			String userName = request.getParameter("INSERT_USERNAME_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
 			String passWord = request.getParameter("INSERT_PASSWORD_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
@@ -43,7 +41,7 @@ public class SignInServlet extends HttpServlet {
 			}
 			else {
 				
-				
+				st2 = conn.createStatement();
 				rs2 = st2.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 				rs2.next();
 
@@ -67,11 +65,8 @@ public class SignInServlet extends HttpServlet {
 		}
 		finally {
 			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if(rs2 != null) {
-					rs2.close();
+				if (conn != null) {
+					conn.close();
 				}
 				if (st != null) {
 					st.close();
@@ -79,8 +74,11 @@ public class SignInServlet extends HttpServlet {
 				if(st2 != null) {
 					st2.close();
 				}
-				if (conn != null) {
-					conn.close();
+				if (rs != null) {
+					rs.close();
+				}
+				if(rs2 != null) {
+					rs2.close();
 				}
 			} 
 			catch (SQLException sqle) {

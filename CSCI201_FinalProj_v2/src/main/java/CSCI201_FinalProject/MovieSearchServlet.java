@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/search")
 public class MovieSearchServlet extends HttpServlet {
-    private static final String JDBC_URL = "jdbc:mysql://localhost/csci201_final_proj";
+    private static final long serialVersionUID = 1L;
+	private static final String JDBC_URL = "jdbc:mysql://localhost/csci201_final_proj";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
 
