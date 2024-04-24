@@ -96,7 +96,7 @@ body{
     margin: auto 0;
   }
 
-  .search-bar {
+  .searchBar {
     align-content:center;
     margin-top: 100px;
     margin-left:auto;
@@ -113,7 +113,7 @@ body{
   }
 
 
-  .search-bar-icon {
+  .searchBarIcon {
     aspect-ratio: 1;
     object-fit: auto;
     object-position: center;
@@ -138,7 +138,7 @@ body{
   }
 
 
-  .results-container {
+  .resultsContainer {
     background-color: #91705a;
     display: flex;
     margin-top: 36px;
@@ -149,7 +149,7 @@ body{
     padding:0;
   }
 
-	.search-results{
+	.searchResults{
 	 color:#FFE9D0;
 	 font-size:3.5em;
 	 padding:0 0 0 50px;
@@ -158,7 +158,7 @@ body{
 	}
  
 
-  .results-grid {
+  .resultsGrid {
     width: 90%;
     margin: 0 auto;
     padding:10px;
@@ -166,7 +166,7 @@ body{
 
   
 
-  .results-row {
+  .resultsRow {
     gap: 0;
     display: flex;
     margin: 0 auto;
@@ -174,7 +174,7 @@ body{
 
  
 
-  .result-col {
+  .resultCol {
     display: flex;
     flex-direction: column;
     line-height: normal;
@@ -183,7 +183,7 @@ body{
     padding: 0;
   }
   
-  .result-item {
+  .resultItem {
     display: flex;
     margin-top: 20px;
     margin-left:0;
@@ -199,24 +199,31 @@ body{
     border: none;
     padding: 0;
     cursor: pointer;
+    height: 300px;
   }
 
-  .result-image {
-    width:90%;
-    height:auto;
-    margin:0 auto;
+  .noResult{
+  	font-family: "Fanwood Text", sans-serif;
+    margin-top: 60px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:1em;
+    
   }
 
-  .result-title {
+  .resultTitle {
     font-family: "Fanwood Text", sans-serif;
     margin-top: 46px;
     margin-left:auto;
     margin-right:auto;
-    font-size:1em;
+    font-size:1.8em;
+    line-height:200px;
   }
 
  
-  
+  #titleColTemplate{
+  	display:flex;
+  }
 
   #footer{
 	margin-top: 35px;

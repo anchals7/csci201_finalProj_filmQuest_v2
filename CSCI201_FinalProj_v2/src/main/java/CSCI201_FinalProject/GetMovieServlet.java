@@ -35,7 +35,7 @@ public class GetMovieServlet extends HttpServlet {
 			st = conn.createStatement();			
 			
 			String movieTitle = request.getParameter("INSERT_MOVIE_TITLE_PARAM_NAME");
-			rs = st.executeQuery("SELECT * FROM Movies WHERE Title = '" + movieTitle + "'" );
+			rs = st.executeQuery("SELECT * FROM Movies WHERE Title LIKE '%" + movieTitle + "%'" );
 			boolean flag = false;
 			List<Movie> l1 = new ArrayList<Movie>();
 			
