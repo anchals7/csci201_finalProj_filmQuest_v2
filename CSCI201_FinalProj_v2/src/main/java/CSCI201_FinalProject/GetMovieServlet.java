@@ -1,21 +1,19 @@
 package CSCI201_FinalProject;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.sql.ResultSet;
 
 @WebServlet("/GetMovie")
 public class GetMovieServlet extends HttpServlet {
@@ -23,7 +21,6 @@ public class GetMovieServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		
 		
 		Connection conn = null;
 		Statement st = null;
@@ -76,14 +73,14 @@ public class GetMovieServlet extends HttpServlet {
 		}
 		finally {
 			try {
-				if (rs != null) {
-					rs.close();
+				if (conn != null) {
+					conn.close();
 				}
 				if (st != null) {
 					st.close();
 				}
-				if (conn != null) {
-					conn.close();
+				if (rs != null) {
+					rs.close();
 				}
 			} 
 			catch (SQLException sqle) {

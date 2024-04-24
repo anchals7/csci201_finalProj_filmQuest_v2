@@ -1,21 +1,19 @@
 package CSCI201_FinalProject;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.sql.ResultSet;
 
 @WebServlet("/GetReviewsOfUser")
 public class GetReviewsOfUserServlet extends HttpServlet {
@@ -35,9 +33,7 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 			st = conn.createStatement();			
 			
 			int id = Integer.parseInt(request.getParameter("INSERT USER ID PARAMETER"));
-			
 			rs = st.executeQuery("SELECT * FROM Reviews WHERE UserID = '" + id + "'");
-			
 			List<Review> l1 = new ArrayList<Review>();
 			boolean flag = false;
 			
@@ -79,14 +75,14 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 		}
 		finally {
 			try {
-				if (rs != null) {
-					rs.close();
+				if (conn != null) {
+					conn.close();
 				}
 				if (st != null) {
 					st.close();
 				}
-				if (conn != null) {
-					conn.close();
+				if (rs != null) {
+					rs.close();
 				}
 			} 
 			catch (SQLException sqle) {
