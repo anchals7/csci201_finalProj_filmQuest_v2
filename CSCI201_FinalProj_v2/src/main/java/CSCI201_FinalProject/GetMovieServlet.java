@@ -25,13 +25,13 @@ public class GetMovieServlet extends HttpServlet {
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/SCHEMA_NAME?user=root&password=PASS");
 			st = conn.createStatement();			
 			
-			String movieTitle = request.getParameter("INSERT_MOVIE_TITLE_PARAM_NAME");
+			String movieTitle = request.getParameter("movieTitle");
 			rs = st.executeQuery("SELECT * FROM Movies WHERE Title LIKE '%" + movieTitle + "%'" );
 			boolean flag = false;
 			List<Movie> l1 = new ArrayList<Movie>();
@@ -52,15 +52,15 @@ public class GetMovieServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			
 			if(!flag) {
-				
-				out.println("INVALID MOVIE");	
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				String error = "INVALID MOVIE";
+				out.println(gson.toJson(error));	
 			}
 			else {
+				response.setStatus(HttpServletResponse.SC_OK);
 				MovieCollection movColl = new MovieCollection();
 				movColl.setData(l1);
-				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				String optr = gson.toJson(movColl);
-				
 				out.println(optr);
 			}
 			out.flush();
