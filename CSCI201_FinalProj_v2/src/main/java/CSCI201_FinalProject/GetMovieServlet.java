@@ -31,7 +31,7 @@ public class GetMovieServlet extends HttpServlet {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
 			st = conn.createStatement();			
 			
-			String movieTitle = request.getParameter("INSERT_MOVIE_TITLE_PARAM_NAME");
+			String movieTitle = request.getParameter("movieTitle");
 			rs = st.executeQuery("SELECT * FROM Movies WHERE Title LIKE '%" + movieTitle + "%'" );
 			boolean flag = false;
 			List<Movie> l1 = new ArrayList<Movie>();

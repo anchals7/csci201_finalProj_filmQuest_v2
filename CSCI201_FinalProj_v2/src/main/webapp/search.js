@@ -3,11 +3,11 @@
   function handleSearchSubmit(event) {
     event.preventDefault();
     
-    const movieName = document.getElementsByClassName('search-input').value;
+    const movieName = document.getElementsByClassName('search-input')[0].value;
     let parameters = new URLSearchParams();
-    parameters.append("INSERT_MOVIE_TITLE_PARAM_NAME", movieName);
+    parameters.append("movieTitle", movieName);
    
-    const url = '/MovieSearchServlet?' + parameters.toString();
+    const url = '/GetMovie?' + parameters.toString();
     
     fetch(url, {
 		method: 'GET',
@@ -29,7 +29,7 @@
 			resultGrid.innerHTML = '<h2 class="noResult">No Results Found</h2>';
 		}
 		else{
-			displayMovieTitles(data.data);
+			displayMovieTitles(movieList, resultGrid);
 		}
 		
 	})
@@ -42,14 +42,14 @@
   }
   
   
-  function displayMovieTitles(movies){
+  function displayMovieTitles(movies, resultGrid){
 		for(let i = 0; i < Math.min(movies.length, 3); i++){
 			let movie = movies[i];
 			let newCard = document.getElementById('titleColTemplate').cloneNode(true);
 			newCard.style.display = 'flex';
 			newCard.id = '';
 			newCard.querySelector('.resultTitle').textContent=movie.title;
-			resultsGrid.appendChild(newCard);
+			resultGrid.appendChild(newCard);
 		}
 	
   }
