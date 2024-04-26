@@ -1,21 +1,19 @@
 package CSCI201_FinalProject;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.sql.ResultSet;
 
 @WebServlet("/GetMovie")
 public class GetMovieServlet extends HttpServlet {
@@ -24,18 +22,17 @@ public class GetMovieServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		
-		
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/SCHEMA_NAME?user=root&password=PASS");
 			st = conn.createStatement();			
 			
-			String movieTitle = request.getParameter("INSERT_MOVIE_TITLE_PARAM_NAME");
-			rs = st.executeQuery("SELECT * FROM Movies WHERE Title = '" + movieTitle + "'" );
+			String movieTitle = request.getParameter("movieTitle");
+			rs = st.executeQuery("SELECT * FROM Movies WHERE Title LIKE '%" + movieTitle + "%'" );
 			boolean flag = false;
 			List<Movie> l1 = new ArrayList<Movie>();
 			
@@ -55,15 +52,15 @@ public class GetMovieServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			
 			if(!flag) {
-				
-				out.println("INVALID MOVIE");	
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				String error = "INVALID MOVIE";
+				out.println(gson.toJson(error));	
 			}
 			else {
+				response.setStatus(HttpServletResponse.SC_OK);
 				MovieCollection movColl = new MovieCollection();
 				movColl.setData(l1);
-				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				String optr = gson.toJson(movColl);
-				
 				out.println(optr);
 			}
 			out.flush();
@@ -76,14 +73,14 @@ public class GetMovieServlet extends HttpServlet {
 		}
 		finally {
 			try {
-				if (rs != null) {
-					rs.close();
+				if (conn != null) {
+					conn.close();
 				}
 				if (st != null) {
 					st.close();
 				}
-				if (conn != null) {
-					conn.close();
+				if (rs != null) {
+					rs.close();
 				}
 			} 
 			catch (SQLException sqle) {
