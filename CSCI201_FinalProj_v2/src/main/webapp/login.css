@@ -90,6 +90,16 @@ body {
     width: 236px;
     font-size: 23px;
 }
+#Submit2 {
+    background-color: #944404;
+    color: #e8e09f;
+    border: none;
+    font-family: "Tahoma";
+    margin: 10px 60px 27px 60px;
+    height: 41px;
+    width: 236px;
+    font-size: 23px;
+}
 
 #Username,
 #Password {

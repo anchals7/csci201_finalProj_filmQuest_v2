@@ -28,33 +28,40 @@ public class RegistrationServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();
 			st2 = conn.createStatement();
 			
 			String userName = request.getParameter("username");
+			System.out.println("username: " + userName);
 			String passWord = request.getParameter("password");
+			System.out.println("password: " + passWord);
 			String email = request.getParameter("email");
+			System.out.println("email: " + email);
 			String displayName = request.getParameter("name");
+			System.out.println("name: " + displayName);
 			
 			rs = st.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 			rs2 = st2.executeQuery("SELECT * FROM Users WHERE email = '" + email + "'");
 			PrintWriter out = response.getWriter();
 			
+			// This email is already registered
 			if(rs2.next()) {
-				out.println("This email is taken already");
+				out.println(-1);
 			}
+			// This username is already registered
 			else if (rs.next()) {
-				out.println("This username is taken already");
+				out.println(-2);
 			}
+			// successful registration
 			else {
-				st.executeUpdate("INSERT INTO Users(Username, Password, Email, DisplayName) VALUES ('" + userName + "', '" + passWord + "', '" + email + "'," + displayName + ");");
+				st.executeUpdate("INSERT INTO Users(Username, Password, Email, DisplayName) VALUES ('" + userName + "', '" + passWord + "', '" + email + "','" + displayName + "');");
 				
 				st3 = conn.createStatement();
 				rs3 = st3.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 				rs3.next();
 
-				int userID = rs.getInt("user_id");
+				int userID = rs3.getInt("user_id");
 				out.println(userID);
 			}
 			

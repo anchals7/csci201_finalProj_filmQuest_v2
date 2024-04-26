@@ -31,7 +31,9 @@ public class GetMovieServlet extends HttpServlet {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
+
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/csci201_final_proj?user=root&password=root");
+
 			st = conn.createStatement();			
 			
 			String movieTitle = request.getParameter("movieTitle");

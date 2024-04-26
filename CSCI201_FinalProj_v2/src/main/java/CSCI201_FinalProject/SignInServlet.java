@@ -27,17 +27,18 @@ public class SignInServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();
 			
-			String userName = request.getParameter("INSERT_USERNAME_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
-			String passWord = request.getParameter("INSERT_PASSWORD_PARAMETER_RETRIEVED_FROM_FRONT-END_JAVASCRIPT");
+			String userName = request.getParameter("username");
+			String passWord = request.getParameter("password");
 			
 			rs = st.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "' AND Password = '" + passWord + "';");
 			PrintWriter out = response.getWriter();
 			
 			if(!rs.next()) {
-				out.println("Invalid username or password");
+//				out.println("Invalid username or password");
+				out.println(-1);
 			}
 			else {
 				
@@ -45,7 +46,7 @@ public class SignInServlet extends HttpServlet {
 				rs2 = st2.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 				rs2.next();
 
-				int userID = rs2.getInt("user_id");
+				int userID = rs2.getInt("UserID");
 				out.println(userID);
 			}
 			

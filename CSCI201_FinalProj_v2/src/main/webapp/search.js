@@ -76,6 +76,7 @@ function handleSearchSubmit(event) {
 	
   }
   
+
   function displayAdditionalInfo(movie) {
     let additionalInfoSection = document.getElementById('additionalInfo');
     if (additionalInfoSection.style.display === 'block' && additionalInfoSection.dataset.title === movie.title) {
@@ -90,6 +91,58 @@ function handleSearchSubmit(event) {
 	    additionalInfoSection.dataset.title = movie.title;		
 	}
  
+}
+  
+
+
+function doNothing(){ alert("doing nothing");}  
+
+
+async function moveToPortfolio(){
+	
+	if(!document.getElementById("mover")){return;}
+	
+	if (!localStorage.getItem("userid")){
+		alert("not signed in");
+		return;
+	}
+	else {
+		
+		
+		let baseURL = window.location.origin + "/login.html/";
+	
+		var url = new URL("/CSCI201_FinalProj_v2/GetUserInfo", baseURL);
+		var params = {
+			userID: localStorage.getItem("userid"), field: "userID",
+		}
+		
+		url.search = new URLSearchParams(params).toString();
+		
+		const response = await fetch(url);
+		console.log(response);
+		const jsonObj = await response.json();
+		console.log(jsonObj);
+		
+		const optr = 
+        '<div id="profile-user">' +
+            '<img src="images/profile_img_placeholder.png" alt="Profile-Img-Placeholder">' +
+            '<div id="profile-user-info">' +
+                '<h2>' + jsonObj.data[0].name + '</h2>' +
+                '<p>' + jsonObj.data[0].username +'</p>' +
+            '</div>' +
+        '</div>' +
+	'  <div id="profile-menu">' +
+        '<div id="active" class="profile-menu-item">' +
+            'My Profile' +
+        '</div>' +
+    '</div>' +
+
+    '<div id="my-reviews">' +
+        '<h1>My Recently Reviewed</h1>' +
+    '</div>';
+        
+        document.getElementById("mover").innerHTML = optr;
+	}
 }
   
 
