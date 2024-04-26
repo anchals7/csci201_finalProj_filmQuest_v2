@@ -115,3 +115,14 @@ body {
     width: 231px;
     font-size: 23px;
 }
+
+#Submit2 {
+    background-color: #944404;
+    color: #e8e09f;
+    border: none;
+    font-family: "Tahoma";
+    margin: 3px 0px 25px 218px;
+    height: 41px;
+    width: 231px;
+    font-size: 23px;
+}

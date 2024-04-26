@@ -20,19 +20,22 @@
                     Login / Create Account
                 </button>
                 <img src="images/SearchIcon.png" />
-                <button id="SearchButton">Search for Movies</button>
+                <button id="SearchButton" onClick = "window.location.href = 'search.html;'">Search for Movies</button>
             </div>
         </header>
         <main id="Boxes">
-            <form id="Login">
+            <form id="Login" name = "Login" onSubmit = "event.preventDefault(); UserSignIn();">
                 <h1 id="Welcome">Welcome Back</h1>
                 <img id="Account" src="images/Account.png" />
                 <br />
-                <input type="text" id="Username" placeholder="username" />
+                <input type="text" id="Username" name = "Username" placeholder="username" />
                 <br />
-                <input type="password" id="Password" placeholder="password" />
+                <input type="password" id="Password" name = "Password" placeholder="password" />
                 <br />
                 <input type="submit" id="Submit" value="LOGIN" />
+                <br />
+                <input type="button" id="Submit2" value="... Or Sign Up" onClick = "window.location.href = 'signup.html;'"/>
+                
             </form>
         </main>
         <script src="login.js"></script>
