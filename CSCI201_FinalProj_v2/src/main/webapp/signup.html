@@ -19,12 +19,12 @@
                 <button id="LoginButton" onclick="GoHome()">
                     Login / Create Account
                 </button>
-                <img src="images/SearchIcon.png" />
-                <button id="SearchButton">Search for Movies</button>
+                <img src="images/SearchIcon.png" onclick = "window.location.href = 'search.html;'"/>
+                <button id="SearchButton" onClick = "window.location.href = 'search.html;'">Search for Movies</button>
             </div>
         </header>
         <main id="Boxes">
-            <form id="Signup">
+            <form id="Signup" name = "Signup" onsubmit = "event.preventDefault(); UserRegistration();">
                 <h1 id="Welcome">Create Account</h1>
                 <br />
 
@@ -37,16 +37,16 @@
                         <p>Re-Enter Password</p>
                     </div>
                     <div id="Input">
-                        <input type="text" id="Name" class="field" />
+                        <input type="text" name ="Name" class="field" />
                         <br />
 
-                        <input type="email" id="Email" class="field" />
+                        <input type="email" name ="Email" class="field" />
                         <br />
 
-                        <input type="text" id="Username" class="field" />
+                        <input type="text" name ="Username" class="field" />
                         <br />
 
-                        <input type="password" id="Password" class="field" />
+                        <input type="password" name ="Password" class="field" />
                         <br />
 
                         <input
@@ -56,8 +56,9 @@
                     </div>
                 </div>
                 <input type="submit" id="Submit" value="Create Account" />
+                <input type="button" id="Submit2" value="... Or Login" onClick = "window.location.href = 'login.html;'" />
             </form>
         </main>
-        <script src="login.js"></script>
+        <script src="signup.js"></script>
     </body>
 </html>
