@@ -137,10 +137,13 @@ body{
     float:left;
   }
 
+	#spacer{
+		height:400px;
+	}
 
-  .resultsContainer {
+  #resultsContainer {
     background-color: #91705a;
-    display: flex;
+    display: none;
     margin-top: 36px;
     width: 100%;
     flex-direction: column;
@@ -185,7 +188,6 @@ body{
  
 
   .resultCol {
-    display: flex;
     flex-direction: column;
     line-height: normal;
     width: 33%;
@@ -226,13 +228,13 @@ body{
     margin-top: 46px;
     margin-left:auto;
     margin-right:auto;
-    font-size:1.8em;
+    font-size:2em;
     line-height:200px;
   }
 
  
   #titleColTemplate{
-  	display:flex;
+  	display: none;
   }
 
   #footer{

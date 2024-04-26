@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="search.css">
-	<script src="search.js"></script>
+	<script src="search.js" defer></script>
 	<title>Search Results</title>
 </head>
 
@@ -31,22 +31,6 @@
             </div>
         </div>
         
- <form id="myForm" name="myForm" class="searchBar">
-    <input type="image" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="searchBarIcon" />
-    <input type="text" id="title" class="search-input" name="title" placeholder="Search Movie"/>
-    <input id="submit-btn" type="button" value="Search" onclick="loadData()">
-    <!-- onclick="handleResult(document.getElementById('result-title-1').value)" -->
-  </form>
-  <!-- <form id="myForm" name="myform">
-  <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
-    <button type="submit">Submit</button>
-    <input id="submit-btn" type="button" value="Search" onclick="loadData();">
-</form> -->
-<div class="resultsContainer">
-	<h2 class="searchResults">Search Results</h2>
-	<div id="response"></div>
-</div>
 
   <div id="footer">
             <p>@FilmQuest distributed by USC CSCI 201</p>
