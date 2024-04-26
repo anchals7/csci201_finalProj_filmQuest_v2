@@ -1,46 +1,29 @@
-
-/*function handleFormSubmit(event) {
-    event.preventDefault();
-
-    // Get form data
-    const formData = new FormData(document.getElementById('myForm'));
-    const movieName = document.getElementById('myForm');
-    const movieName2 = document.getElementById('myForm').value;
-    
-    console.log(formData);
-    console.log(movieName);
-    console.log(movieName2);
-
-    // Send AJAX request
-    fetch('/MovieSearchServlet', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to submit form');
-        }
-        return response.text(); // Return response text
-    })
-    .then(data => {
-        // Update specific portion of the page with response data
-        document.getElementById('response').innerText = data;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}*/
-
-// Attach event listener to the form
-//document.getElementById('myForm').addEventListener('submit', handleFormSubmit);
-
-
-/*
-
-  function handleSearchSubmit(event) {
+function handleSearchSubmit(event) {
     event.preventDefault();
     
-
+    let resultsContainer = document.getElementById('resultsContainer');
+    resultsContainer.style.display = "flex";
+    let spacer = document.getElementById('spacer');
+    spacer.style.display = "none";
+    resultsContainer.innerHTML = `<h2 class="searchResults">Search Results</h2>
+								    <div class="resultsGrid">
+								      <div class="resultsRow">
+								       <div class="resultCol" id="titleColTemplate">
+								          <button class="resultItem" >
+								            <div class="resultTitle">
+								              Title
+								            </div>
+								          </button>
+								        </div>
+								      </div>
+								    </div>`;
+    
+    const movieName = document.getElementsByClassName('search-input')[0].value;
+    let parameters = new URLSearchParams();
+    parameters.append("movieTitle", movieName);
+    const url = '/CSCI201_FinalProj_v2/GetMovie?' + parameters.toString();
+    
+    
     
     fetch(url, {
 		method: 'GET',
@@ -72,21 +55,10 @@
         });
     
     console.log('Search form submitted');
-  }*/
+  }
   
-  function loadData() {
-			//var formData = new FormData(document.getElementById("myform"));
-			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST", "MovieSearchServlet", true);
-			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhttp.onload = function () {
-				document.getElementById("response").innerHTML = this.responseText;
-				console.log(this.responseText);
-			}
-			xhttp.send("field=title&title=" + document.myForm.title.value);
-		}
   
-
+ function displayMovieTitles(movies, resultRow){
 		for(let i = 0; i < Math.min(movies.length, 3); i++){
 			let movie = movies[i];
 			console.log(document.getElementById('titleColTemplate'));  // This should not log `null` if the element exists and is loaded
@@ -96,12 +68,31 @@
 			
 			newCard.querySelector('.resultTitle').textContent=movie.title;
 			resultRow.appendChild(newCard);
+			
+			newCard.querySelector('.resultItem').addEventListener('click', () => {
+            displayAdditionalInfo(movie);
+        });
 		}
 	
   }
-  */
   
+  function displayAdditionalInfo(movie) {
+    let additionalInfoSection = document.getElementById('additionalInfo');
+    if (additionalInfoSection.style.display === 'block' && additionalInfoSection.dataset.title === movie.title) {
+        additionalInfoSection.style.display = 'none';
+        additionalInfoSection.dataset.title = ''; // Clear the dataset attribute
+    } else {
+		additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+                                       <p>Synopsis: ${movie.synopsis}</p>
+                                       <p>Rating: ${movie.rating}</p>
+                                       <p>Genre: ${movie.genre}</p>`;
+	    additionalInfoSection.style.display = 'block';
+	    additionalInfoSection.dataset.title = movie.title;		
+	}
+ 
+}
   
+
 
   /*function handleResult(title) {
 	 let movie = {
@@ -133,4 +124,3 @@
 	
     console.log('Result item clicked');
   }*/
-
