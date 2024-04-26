@@ -3,69 +3,58 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="search.css">
-	<script src="search.js"></script>
+	<script src="search.js" defer></script>
 	<title>Search Results</title>
 </head>
+
+
 <body>
 <div class="content">
-  <header class="header">
-    <h1 class="logo">FilmQuest</h1>
-    <nav class="nav">
-      <button class="profile-link" onclick="handleProfileClick()">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/93eeb52fbe6dd66df1c95e1bcd8cd99973fee4a1b83d962e52b6676c7e73f41f?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Profile icon" class="profile-icon" />
-        <span class="profile-text">My Profile</span>
-      </button>
-      <button class="search-link" onclick="handleSearchClick()">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="search-icon" />
-        <span class="search-text">Search For Movies</span>
-      </button>
-    </nav>
-  </header>
-  <form class="search-bar" onsubmit="handleSearchSubmit(event)">
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="search-bar-icon" />
-    <input type="text" class="search-input" placeholder="Search Keyword" aria-label="Search Keyword" />
+  <div id="header">
+            <div id="logo">
+                <img src="images/quest_logo.png" alt="Website-Logo">
+                <h1>FilmQuest</h1>
+            </div>
+            <div id="menu-items">
+                <div class="menu-item">
+                    <img src="images/profile_menu_holder.png" alt="My-Profile-Logo">
+                    <a href="profile.html">My Profile</a>
+                </div>
+                <div class="menu-item">
+                    <img src="images/search.png" alt="Search-Logo">
+                    <a href="search.html">Search For Movies</a>
+                </div>
+                <div class="menu-item">
+                    <img src="images/rating.png" alt="Ratings-Reviews-Logo">
+                    <a href="myreviews.html">My Reviews</a>
+                </div>
+            </div>
+        </div>
+        
+  <form class="searchBar" onsubmit="handleSearchSubmit(event)">
+    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="searchBarIcon" />
+    <input type="text" class="search-input" placeholder="Search Keyword" aria-label="Search Keyword" required/>
   </form>
-  <main class="results-container">
-  <h2 class="search-results">Search Results</h2>
-    <div class="results-grid">
-      <div class="results-row">
-       <div class="result-col-1">
-          <button class="result-item" onclick="handleResultClick(event)">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1725d1e41f1f4815d835312dd71811fdd1855ab70f529141aa9a6a67433b8489?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Movie poster" class="result-image" />
-            <h2 class="result-title">
+  <div id="spacer"></div>
+  <div id="resultsContainer">
+  <h2 class="searchResults">Search Results</h2>
+    <div class="resultsGrid">
+      <div class="resultsRow">
+       <div class="resultCol" id="titleColTemplate">
+          <button class="resultItem" >
+            <div class="resultTitle">
               Title
-              <br />
-              Rating Display
-            </h2>
+            </div>
           </button>
         </div>
-        <div class="result-col-2">
-          <button class="result-item" onclick="handleResultClick(event)">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1725d1e41f1f4815d835312dd71811fdd1855ab70f529141aa9a6a67433b8489?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Movie poster" class="result-image" />
-            <h2 class="result-title">
-              Title
-              <br />
-              Rating Display
-            </h2>
-          </button>
-        </div>
-        <div class="result-col-3">
-          <button class="result-item" onclick="handleResultClick(event)">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1725d1e41f1f4815d835312dd71811fdd1855ab70f529141aa9a6a67433b8489?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Movie poster" class="result-image" />
-            <h2 class="result-title">
-              Title
-              <br />
-              Rating Display
-            </h2>
-          </button>
-        </div>
+        
       </div>
     </div>
-    <button class="view-more" onclick="handleViewMoreClick()">View more results...</button>
-  </main>
-  <footer class="footer">
-    @FilmQuest distributed by USC CSCI 201
-  </footer>
+   
+  </div>
+  <div id="footer">
+            <p>@FilmQuest distributed by USC CSCI 201</p>
+      </div>
 </div>
 </body>
 </html>
