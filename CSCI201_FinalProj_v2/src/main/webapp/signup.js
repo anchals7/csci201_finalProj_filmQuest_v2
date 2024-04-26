@@ -23,7 +23,7 @@ async function UserRegistration(){
 			document.getElementById("Signup").reset();
 		}
 		else {
-			localStorage.setItem("userid", text);
+			localStorage.setItem("userid", text.substring(0, text.length - 2));
 			document.getElementById("Signup").reset();
 		}
 	}).catch(function (error) {
