@@ -226,6 +226,27 @@ body{
   #titleColTemplate{
   	display: none;
   }
+  
+  #additionalInfo {
+    display: none; /* Initially hide the additional info */
+    background-color: #E6F4F1;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    
+}
+
+#additionalInfo h2 {
+    color: #324A51;
+    font-size: 24px;
+}
+
+#additionalInfo p {
+    color: #00A8D6;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+ 
 
   #footer{
 	margin-top: 35px;
@@ -426,6 +447,3 @@ body{
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
-
-
-  

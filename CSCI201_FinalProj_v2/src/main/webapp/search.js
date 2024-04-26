@@ -1,6 +1,4 @@
-
-
-  function handleSearchSubmit(event) {
+function handleSearchSubmit(event) {
     event.preventDefault();
     
     let resultsContainer = document.getElementById('resultsContainer');
@@ -70,10 +68,33 @@
 			
 			newCard.querySelector('.resultTitle').textContent=movie.title;
 			resultRow.appendChild(newCard);
+			
+			newCard.querySelector('.resultItem').addEventListener('click', () => {
+            displayAdditionalInfo(movie);
+        });
 		}
 	
   }
   
+
+  function displayAdditionalInfo(movie) {
+    let additionalInfoSection = document.getElementById('additionalInfo');
+    if (additionalInfoSection.style.display === 'block' && additionalInfoSection.dataset.title === movie.title) {
+        additionalInfoSection.style.display = 'none';
+        additionalInfoSection.dataset.title = ''; // Clear the dataset attribute
+    } else {
+		additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+                                       <p>Synopsis: ${movie.synopsis}</p>
+                                       <p>Rating: ${movie.rating}</p>
+                                       <p>Genre: ${movie.genre}</p>`;
+	    additionalInfoSection.style.display = 'block';
+	    additionalInfoSection.dataset.title = movie.title;		
+	}
+ 
+}
+  
+
+
 function doNothing(){ alert("doing nothing");}  
 
 
@@ -125,6 +146,7 @@ async function moveToPortfolio(){
 }
   
 
+
   /*function handleResult(title) {
 	 let movie = {
 		INSERT_MOVIE_TITLE_PARAM_NAME: title
@@ -155,4 +177,3 @@ async function moveToPortfolio(){
 	
     console.log('Result item clicked');
   }*/
-
