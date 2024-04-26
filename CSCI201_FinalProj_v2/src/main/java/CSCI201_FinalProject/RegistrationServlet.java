@@ -28,7 +28,7 @@ public class RegistrationServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();
 			st2 = conn.createStatement();
 			
@@ -55,13 +55,13 @@ public class RegistrationServlet extends HttpServlet {
 			}
 			// successful registration
 			else {
-				st.executeUpdate("INSERT INTO Users(Username, Password, Email, DisplayName) VALUES ('" + userName + "', '" + passWord + "', '" + email + "'," + displayName + ");");
+				st.executeUpdate("INSERT INTO Users(Username, Password, Email, DisplayName) VALUES ('" + userName + "', '" + passWord + "', '" + email + "','" + displayName + "');");
 				
 				st3 = conn.createStatement();
 				rs3 = st3.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 				rs3.next();
 
-				int userID = rs.getInt("user_id");
+				int userID = rs3.getInt("user_id");
 				out.println(userID);
 			}
 			
