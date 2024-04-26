@@ -1,6 +1,4 @@
-const Signup = document.getElementById("Signup");
-
-Signup.addEventListener("submit", function (event) {
+document.getElementById("Signup").addEventListener("submit", function (event) {
     event.preventDefault();
     const name = document.getElementById("Name").value.trim();
     const email = document.getElementById("Email").value.trim();
@@ -23,7 +21,7 @@ Signup.addEventListener("submit", function (event) {
             passwordConfirm
     );
 
-    // make sure nothing is empty
+    // ensure none of the fields are empty
     if (
         name !== "" &&
         email !== "" &&
@@ -31,8 +29,16 @@ Signup.addEventListener("submit", function (event) {
         password !== "" &&
         passwordConfirm !== ""
     ) {
+        // ensure passwords match
         if (password === passwordConfirm) {
-            signUp(name, email, username, password);
+            var credentials = JSON.stringify({
+                name: name,
+                email: email,
+                username: username,
+                password: password
+            });
+            console.log(credentials);
+            UserSignUp(credentials);
         } else {
             alert("ERROR: Passwords must match.");
         }
@@ -41,21 +47,14 @@ Signup.addEventListener("submit", function (event) {
     }
 });
 
-function signUp(name, email, username, password) {
-    let baseURL = "RegistrationOfUser";
-    var userinfo = JSON.stringify({
-        name: name,
-        email: email,
-        username: username,
-        password: password
-    });
-    console.log(userinfo);
+function UserSignUp(credentials) {
+    let servlet = "RegistrationOfUser";
     fetch(baseURL, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         },
-        body: userinfo
+        body: credentials
     })
         .then((response) => {
             if (!response.ok) {
@@ -63,20 +62,22 @@ function signUp(name, email, username, password) {
             }
             return response.json();
         })
-        .then((data) => {
-            console.log(data);
-            if (data === "This user does not exist") {
+        .then((id) => {
+            console.log(id);
+            if (id === -1) {
                 alert("ERROR: Invalid username.");
-            } else if (data === "Incorrect password") {
+            } else if (id === -2) {
                 alert("ERROR: Invalid password.");
             } else {
-                window.location.href = "index.html";
-                const id = { id: data };
-                const idJSON = JSON.stringify(id);
-                localStorage.setItem("userid", idJSON);
+                Redirect(id);
             }
         })
         .catch(function (error) {
             console.log("request failed", error);
         });
+}
+
+function Redirect(id) {
+    localStorage.setItem("userid", id);
+    window.location.href = "search.html";
 }
