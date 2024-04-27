@@ -132,13 +132,9 @@ async function moveToPortfolio(){
             '</div>' +
         '</div>' +
 	'  <div id="profile-menu">' +
-        '<div id="active" class="profile-menu-item">' +
+        '<div id="active" class="profile-menu-item" style = "font-size: 25px; font-family: Arial; border-radius: 7px; background-color: #B39BC7;">' +
             'My Profile' +
         '</div>' +
-    '</div>' +
-
-    '<div id="my-reviews">' +
-        '<h1>My Recently Reviewed</h1>' +
     '</div>';
         
         document.getElementById("mover").innerHTML = optr;

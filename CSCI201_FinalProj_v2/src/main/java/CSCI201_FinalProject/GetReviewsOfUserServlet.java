@@ -22,7 +22,6 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		
-		
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;

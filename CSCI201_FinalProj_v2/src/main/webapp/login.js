@@ -22,8 +22,7 @@ async function UserSignIn(){
 		else {
 			localStorage.setItem("userid", text.substring(0, text.length - 2));
 			console.log(text);
-			alert("successful login!");
-			document.getElementById("Login").reset();
+			window.location.href = "search.html";
 		}
 	}).catch(function (error) {
 	console.log('request failed', error)

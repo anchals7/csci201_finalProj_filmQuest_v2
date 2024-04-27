@@ -28,7 +28,7 @@ public class GetReviewsOfMovieServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();			
 			
 			int id = Integer.parseInt(request.getParameter("INSERT MOVIE ID PARAMETER"));
