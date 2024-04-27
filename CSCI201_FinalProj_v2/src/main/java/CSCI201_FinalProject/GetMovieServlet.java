@@ -1,6 +1,8 @@
 package CSCI201_FinalProject;
 
 import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import java.util.List;
 import javax.servlet.http.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import java.sql.ResultSet;
 
 @WebServlet("/GetMovie")
@@ -28,11 +31,20 @@ public class GetMovieServlet extends HttpServlet {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/csci201_final_proj?user=root&password=root");
+
 			st = conn.createStatement();			
 			
 			String movieTitle = request.getParameter("movieTitle");
 			rs = st.executeQuery("SELECT * FROM Movies WHERE Title LIKE '%" + movieTitle + "%'" );
+			//printResultSet(rs);
+//			rs.next();
+//			String mt = String.format("%-20s", rs.getString(2));
+//			printWriter.print(mt);
+//			printWriter.flush();
+//			String output1 = stringWriter.toString();
+//			System.out.println(output1);
 			boolean flag = false;
 			List<Movie> l1 = new ArrayList<Movie>();
 			
@@ -41,7 +53,7 @@ public class GetMovieServlet extends HttpServlet {
 				flag = true;
 				Movie m1 = new Movie();
 				
-				m1.setMovieID(rs.getInt("MovieID"));
+				m1.setMovieID((rs.getInt("MovieID")));
 				m1.setTitle(rs.getString("Title"));
 				m1.setSynopsis(rs.getString("Synopsis"));
 				m1.setRating(rs.getFloat("Rating"));
@@ -88,4 +100,23 @@ public class GetMovieServlet extends HttpServlet {
 			}
 		}	
 	}
+	
+	public static void printResultSet(ResultSet resultSet) throws SQLException {
+        ResultSetMetaData metaData = resultSet.getMetaData();
+        int columnCount = metaData.getColumnCount();
+
+        // Print column headers
+        for (int i = 1; i <= columnCount; i++) {
+            System.out.printf("%-20s", metaData.getColumnName(i));
+        }
+        System.out.println();
+
+        // Print rows
+        while (resultSet.next()) {
+            for (int i = 1; i <= columnCount; i++) {
+                System.out.printf("%-20s", resultSet.getString(i));
+            }
+            System.out.println();
+        }
+    }
 }
