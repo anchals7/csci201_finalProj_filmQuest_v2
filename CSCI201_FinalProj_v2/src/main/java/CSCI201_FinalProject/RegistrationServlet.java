@@ -61,7 +61,7 @@ public class RegistrationServlet extends HttpServlet {
 				rs3 = st3.executeQuery("SELECT * FROM Users WHERE Username = '" + userName + "'");
 				rs3.next();
 
-				int userID = rs3.getInt("user_id");
+				int userID = rs3.getInt("UserID");
 				out.println(userID);
 			}
 			

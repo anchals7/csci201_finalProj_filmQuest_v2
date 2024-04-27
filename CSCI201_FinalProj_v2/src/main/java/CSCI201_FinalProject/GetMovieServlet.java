@@ -32,7 +32,7 @@ public class GetMovieServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/csci201_final_proj?user=root&password=root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 
 			st = conn.createStatement();			
 			

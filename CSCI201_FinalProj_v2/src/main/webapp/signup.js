@@ -24,7 +24,7 @@ async function UserRegistration(){
 		}
 		else {
 			localStorage.setItem("userid", text.substring(0, text.length - 2));
-			document.getElementById("Signup").reset();
+			window.location.href = "search.html";
 		}
 	}).catch(function (error) {
 	console.log('request failed', error)
