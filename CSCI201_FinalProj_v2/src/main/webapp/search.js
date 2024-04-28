@@ -206,7 +206,7 @@ async function ShowReviews(name, username) {
             </div>
             </div>
             <div id="my-reviews">
-            <h1>My Recently Reviewed</h1>
+            <h1>My Reviews </h1>
             ${reviews}
             </div>
             </div>`;

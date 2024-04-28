@@ -47,7 +47,7 @@ public class ReviewServlet extends HttpServlet {
                 //TODO also verify that the logic is correct. i.e. if we only reach this servlet if the user is already registered
                 out.println("Invalid User ID");
             }else {
-                st.executeUpdate("INSERT INTO Reviews(UserID, MovieID, Content) VALUES (" + userID + ", " + movieID + ", '" + content + "', " + date + ");");
+                st.executeUpdate("INSERT INTO Reviews(UserID, MovieID, Content) VALUES (" + userID + ", " + movieID + ", '" + content + "', DATE '" + date + "' );");
                 out.println("Review Submitted");
             }
 
