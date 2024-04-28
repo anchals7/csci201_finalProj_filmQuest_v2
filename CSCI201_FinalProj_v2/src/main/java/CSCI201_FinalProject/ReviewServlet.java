@@ -27,7 +27,7 @@ public class ReviewServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/csci201_final_proj?user=root&password=root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
             st = conn.createStatement();
 
             PrintWriter out = response.getWriter();
@@ -47,7 +47,7 @@ public class ReviewServlet extends HttpServlet {
                 //TODO also verify that the logic is correct. i.e. if we only reach this servlet if the user is already registered
                 out.println("Invalid User ID");
             }else {
-                st.executeUpdate("INSERT INTO Reviews(UserID, MovieID, Content) VALUES (" + userID + ", " + movieID + ", '" + content + "', " + date + ");");
+                st.executeUpdate("INSERT INTO Reviews(UserID, MovieID, Content) VALUES (" + userID + ", " + movieID + ", '" + content + "', DATE '" + date + "' );");
                 out.println("Review Submitted");
             }
 

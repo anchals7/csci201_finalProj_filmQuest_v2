@@ -23,8 +23,8 @@ async function UserRegistration(){
 			document.getElementById("Signup").reset();
 		}
 		else {
-			localStorage.setItem("userid", text.substring(0, text.length - 2));
-			document.getElementById("Signup").reset();
+			sessionStorage.setItem("userid", text.substring(0, text.length - 2));
+			window.location.href = "search.html";
 		}
 	}).catch(function (error) {
 	console.log('request failed', error)

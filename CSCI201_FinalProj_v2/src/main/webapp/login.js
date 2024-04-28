@@ -20,10 +20,9 @@ async function UserSignIn(){
 			document.getElementById("Login").reset();
 		}
 		else {
-			localStorage.setItem("userid", text.substring(0, text.length - 2));
+			sessionStorage.setItem("userid", text.substring(0, text.length - 2));
 			console.log(text);
-			alert("successful login!");
-			document.getElementById("Login").reset();
+			window.location.href = "search.html";
 		}
 	}).catch(function (error) {
 	console.log('request failed', error)

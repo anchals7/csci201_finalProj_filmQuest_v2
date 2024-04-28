@@ -1,77 +1,77 @@
-body{
-	margin:0;
-	padding:0;
-	width: 100%;
-	background-color:black;
-	}
-
-body{
-	background-color: black;
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: black;
+    overflow-x: hidden;
 }
 
-#header h1{
-	font-family: "Lexend Mega", sans-serif;
-	color: white;
-	float: left;
-	margin-top: 17px;
-	padding-top: 0px;
+body {
+    background-color: black;
+}
+
+#header h1 {
+    font-family: "Lexend Mega", sans-serif;
+    color: white;
+    float: left;
+    margin-top: 17px;
+    padding-top: 0px;
 }
 
 #logo {
-	display: inline-block;
+    display: inline-block;
 }
 
 #logo img {
-	width: 57px;
-	height: auto;
-	margin-top: 5px;
-	margin-left: 7px;
-	float: left;
+    width: 57px;
+    height: auto;
+    margin-top: 5px;
+    margin-left: 7px;
+    float: left;
 }
 
-#menu-items{
-	display: inline-block;
-	float: right;
+#menu-items {
+    display: inline-block;
+    float: right;
 }
 
 .menu-item {
-	float: right;
+    float: right;
 }
 
-.menu-item a{
-	font-family: "Fira Sans Extra Condensed", sans-serif;
-  	font-weight: 400;
-  	font-style: normal;
-  	font-size: 25px;
-  	color: white;
-  	float: left;
-  	margin-top: 23px;
-  	margin-right: 35px;
-  	text-decoration: none;
+.menu-item a {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    color: white;
+    float: left;
+    margin-top: 23px;
+    margin-right: 35px;
+    text-decoration: none;
 }
 
-.menu-item:hover a{
-	font-family: "Fira Sans Extra Condensed", sans-serif;
-  	font-weight: 400;
-  	font-style: normal;
-  	font-size: 25px;
-  	color: white;
-  	float: left;
-  	margin-top: 23px;
-  	margin-right: 35px;
-  	text-decoration: underline;
+.menu-item:hover a {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    color: white;
+    float: left;
+    margin-top: 23px;
+    margin-right: 35px;
+    text-decoration: underline;
 }
 
-
-.menu-item img{
-	width: 31px;
-	height: auto;
-	float: left;
-	margin-top: 23px;
-	margin-right: 5px;
+.menu-item img {
+    width: 31px;
+    height: auto;
+    float: left;
+    margin-top: 23px;
+    margin-right: 5px;
 }
 
-  .search-link {
+.search-link {
     display: flex;
     gap: 5px;
     background: none;
@@ -80,50 +80,58 @@ body{
     font: inherit;
     cursor: pointer;
     padding: 0;
-  }
+}
 
-  .search-icon {
+.search-icon {
     aspect-ratio: 1;
     object-fit: auto;
     object-position: center;
     width: 35px;
-  }
+}
 
-  .search-text {
-    font-family: "Fira Sans Extra Condensed", -apple-system, Roboto, Helvetica, sans-serif;
+.search-text {
+    font-family:
+        "Fira Sans Extra Condensed",
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
     flex-grow: 1;
     flex-basis: auto;
     margin: auto 0;
-  }
+}
 
-  .searchBar {
-    align-content:center;
+.searchBar {
+    align-content: center;
     margin-top: 100px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 12%;
     font-size: 30px;
     color: #eee8a9;
     font-weight: 400;
+}
 
-  }
-  
-  ::placeholder{
-  	color:black;
-  }
+::placeholder {
+    color: black;
+}
 
-
-  .searchBarIcon {
+.searchBarIcon {
     aspect-ratio: 1;
     object-fit: auto;
     object-position: center;
     width: 35px;
     margin: 0;
-    float:left;
-  }
+    float: left;
+}
 
-  .search-input {
-    font-family: "Gentium Book Basic", -apple-system, Roboto, Helvetica, sans-serif;
+.search-input {
+    font-family:
+        "Gentium Book Basic",
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
     font-style: italic;
     background-color: #7e6791;
     align-items: start;
@@ -133,317 +141,359 @@ body{
     padding: 11px 19px;
     border: none;
     color: inherit;
-    margin:0;
-    float:left;
-  }
+    margin: 0;
+    float: left;
+}
 
-	#spacer{
-		height:400px;
-	}
+#spacer {
+    height: 400px;
+}
 
-  #resultsContainer {
-    background-color: #91705a;
+#resultsContainer {
+    background-color: black;
     display: none;
     margin-top: 36px;
-    width: 100%;
+    
+    width: 71.5%;
+    position: relative;
+    left: 275px;
+    border-radius: 12px;
+   
     flex-direction: column;
     flex-grow: 1;
-    align-content:center;
-    padding:0;
-  }
+    align-content: center;
+    padding: 10px;
+    border-width: 20px;
+}
 
-	.searchResults{
-	 color:#FFE9D0;
-	 font-size:3.5em;
-	 padding:0 0 0 50px;
-	 margin-bottom:0px;
-	 text-decoration:underline;
-	}
- 
+.searchResults {
+    color: White;
+    font-size: 50px;
+    font-family: Arial;
+    margin-bottom: 0px;
+    text-decoration: underline;
+}
 
-  .resultsGrid {
+.resultsGrid {
     width: 90%;
     margin: 0 auto;
-    padding:10px;
-  }
+    padding: 10px;
+}
 
-  
-
-  .resultsRow {
+.resultsRow {
     gap: 0;
     display: flex;
     margin: 0 auto;
-  }
+}
 
- 
-
-  .resultCol {
-    flex-direction: column;
+.resultCol {
     line-height: normal;
-    width: 33%;
-    margin:0;
+    width: 100%;
+    margin: 0;
     padding: 0;
-  }
-  
-  .resultItem {
+}
+
+.resultItem {
     display: flex;
     margin-top: 20px;
-    margin-left:0;
-    margin-right:0;
-    width:100%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
     flex-grow: 1;
     flex-direction: column;
     font-size: 33px;
     color: #fff;
-    font-weight: 400;
     text-align: center;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     height: 300px;
-  }
+}
 
-  .noResult{
-  	font-family: "Fanwood Text", sans-serif;
+.noResult {
+    font-family: "Fanwood Text", sans-serif;
     margin-top: 60px;
-    margin-left:auto;
-    margin-right:auto;
-    font-size:1em;
-    
-  }
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+}
 
-  .resultTitle {
+.resultTitle {
     font-family: "Fanwood Text", sans-serif;
     margin-top: 46px;
-    margin-left:auto;
-    margin-right:auto;
-    font-size:2em;
-    line-height:200px;
-  }
+    font-size: 40px;
+    line-height: 70px;
+    background-color: #7e6791;
+    font-weight: bold;
+    padding: 10px;
+    border-width: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
 
- 
-  #titleColTemplate{
-  	display: none;
-  }
-  
-  #additionalInfo {
+#titleColTemplate {
+    display: none;
+}
+
+#additionalInfo {
     display: none; /* Initially hide the additional info */
-    background-color: #E6F4F1;
+    background-color: #e6f4f1;
     padding: 20px;
     border-radius: 5px;
     margin: 20px;
-    
 }
 
 #additionalInfo h2 {
-    color: #324A51;
+    color: #324a51;
     font-size: 24px;
 }
 
 #additionalInfo p {
-    color: #00A8D6;
+    color: #00a8d6;
     font-size: 16px;
     margin-bottom: 10px;
 }
- 
 
-  #footer{
-	margin-top: 35px;
-	background-color: black;
-	color: white;
-	width: 100%;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	padding: 3px;
-	font-family: "Exo", sans-serif;
-  	font-optical-sizing: auto;
-  	font-weight: 400;
-  	font-style: normal;
-  	position: absolute;
-	bottom: 0px;
+#footer {
+    margin-top: 35px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding: 3px;
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    bottom: 0px;
 }
 
-#footer p{
-	padding: 15px;
-	background-color: #324A51;
-	margin: 0px;
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
+#footer p {
+    padding: 15px;
+    background-color: #324a51;
+    margin: 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
 }
 
-.ButtonProfile{
-	
-	background-color: black;
-	color: white;
-	border: 0px;
-	font-family: "Fira Sans Extra Condensed", sans-serif;
-	font-weight: 400;
-  	font-style: normal;
-  	font-size: 25px;
-  	margin-top: 23px;
-  	margin-right: 35px;
-  	cursor: pointer;	
+.ButtonProfile {
+    background-color: black;
+    color: white;
+    border: 0px;
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    margin-top: 23px;
+    margin-right: 35px;
+    cursor: pointer;
 }
-.ButtonProfile:hover{
-	
-	text-decoration: underline;
+.ButtonProfile:hover {
+    text-decoration: underline;
 }
 
-#profile-user{
-	color: white;
-	margin-top: 35px;
+#profile-user {
+    color: white;
+    margin-top: 35px;
 }
 
-#profile-user img{
-	width: 115px;
-	height: auto;
-	float: left;
-	margin-left: 45px;
+#profile-user img {
+    width: 115px;
+    height: auto;
+    float: left;
+    margin-left: 45px;
 }
 
 #profile-user-info {
-	float: left;
+    float: left;
 }
 
-#profile-user-info h2{
-	margin-top: 35px;
-	margin-bottom: 0px;
-	font-family: "Fira Sans Extra Condensed", sans-serif;
-	font-weight: 400;
-
+#profile-user-info h2 {
+    margin-top: 35px;
+    margin-bottom: 0px;
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 400;
 }
 
-#profile-user-info p{
-	margin-top: 5px;
-	margin-bottom: 0px;
-	font-family: "Fira Sans Extra Condensed", sans-serif;
-	font-weight: 300;
-	font-size: 21px;
+#profile-user-info p {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-weight: 300;
+    font-size: 21px;
 }
 
 #profile-menu {
-	background-color: #B39BC7;
-	float: none;
-	margin-top: 170px;
-	width: 1200px;
-	margin-top: 170px;
-	margin-bottom: 39px;
-	margin-left: auto;
-	margin-right: auto;
+    background-color: #b39bc7;
+    float: none;
+    margin-top: 170px;
+    width: 1200px;
+    margin-top: 170px;
+    margin-bottom: 39px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
 }
 
 .profile-menu-item {
-	color: #BBAAC9;
-	background-color: #7E6791;
-	display: inline-block;
-	width: 170px;
-	text-align: center;
-	margin-right: 5px;
+    color: #bbaac9;
+    background-color: #7e6791;
+    display: inline-block;
+    width: 170px;
+    text-align: center;
+    margin-right: 5px;
 }
 
-.profile-menu-item a{
-	font-family: "Gentium Book Plus", serif;
-	font-size: 21px;
-	margin: 7px;
-	padding: 7px;
-	text-decoration: none;
-	color: #BBAAC9;
+.profile-menu-item a {
+    font-family: "Gentium Book Plus", serif;
+    font-size: 21px;
+    margin: 7px;
+    padding: 7px;
+    text-decoration: none;
+    color: #bbaac9;
 }
 
-.profile-menu-item:hover a{
-	text-decoration: underline;
+.profile-menu-item:hover a {
+    text-decoration: underline;
 }
 
-#active{
-	color: #EEE8A9;
-	background-color: #9E4300;
+#active {
+    color: #eee8a9;
+    font-family: Arial;
+    font-size: 20px;
+    background-color: #8B008B;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 
-#active a{
-	color: #EEE8A9;
+#active a {
+    color: #eee8a9;
 }
 
 #my-reviews {
-	background-color: #E6F4F1;
-	margin: 5px auto;
-	width: 1200px;
-	height: 390px;
+    background-color: black;
+    margin: 5px auto;
+    width: 1200px;
+    height: 390px;
 }
 
 #my-recs {
-	background-color: #E6F4F1;
-	margin: 5px auto;
-	width: 1200px;
-	height: 390px;
+    background-color: #e6f4f1;
+    margin: 5px auto;
+    width: 1200px;
+    height: 390px;
 }
 
 #my-reviews h1 {
-	color: #324A51;
-	padding-top: 13px;
-	padding-left: 21px;
-	margin-bottom: 7px;
-	font-family: "Graduate", serif;
-	font-style: normal;
-	font-weight: 400;
+    color: white;
+    padding-top: 5px;
+    padding-left: 0px;
+    background-color: black;
+    margin-bottom: 7px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 400;
 }
 
 #my-recs h1 {
-	color: #324A51;
-	padding-top: 13px;
-	padding-left: 21px;
-	margin-bottom: 7px;
-	font-family: "Graduate", serif;
-	font-style: normal;
-	font-weight: 400;
+    color: #324a51;
+    padding-top: 13px;
+    padding-left: 21px;
+    margin-bottom: 7px;
+    font-family: "Graduate", serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
 #my-reviews h6 {
-	color: #324A51;
-	display: block;
-	padding-top: 261px;
-	margin-left: 19px;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-	font-family: "Halant", serif;
-  	font-weight: 600;
-  	font-size: 17px;
+    color: #324a51;
+    display: block;
+    padding-top: 261px;
+    margin-left: 19px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-family: "Halant", serif;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 #my-recs h6 {
-	color: #324A51;
-	display: block;
-	padding-top: 261px;
-	margin-left: 19px;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-	font-family: "Halant", serif;
-  	font-weight: 600;
-  	font-size: 17px;
+    color: #324a51;
+    display: block;
+    padding-top: 261px;
+    margin-left: 19px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-family: "Halant", serif;
+    font-weight: 600;
+    font-size: 17px;
 }
 
-.review-item{
-	float: left;
-	margin-left: 90px;
-	text-align: center;
-	margin-top: 9px;
+.review-item {
+    float: left;
+    margin-left: 90px;
+    text-align: center;
+    margin-top: 9px;
 }
 
-.review-item p{
-	color: #005B8F;
-	margin-bottom: 1px;
-	margin-top: 7px;
-	padding: 0px;
-	font-family: "Halant", serif;
-  	font-weight: 400;
-  	font-style: normal;
+.review-item p {
+    color: #005b8f;
+    margin-bottom: 1px;
+    margin-top: 7px;
+    padding: 0px;
+    font-family: "Halant", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.review-item img{
-	width: 130px;
-	height: auto;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
+.review-item img {
+    width: 130px;
+    height: auto;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+/*FORMATTING FOR REVIEW PORTFOLIO*/
+
+.Reviews {
+    background-color: black;
+    color: white;
+    font-family: "Arial";
+    font-size: 25px;
+    margin: 20px;
+    padding: 25px;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    width: 600px;
+    height: 200px;
+    border-radius: 5px;
+    border-width: thick;
+}
+
+.MovieTitle {
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    width: 700px;
+    display: flex;
+}
+
+.ReviewClass{
+	
+	background-color: #8B008B;
+	color: white;
+	font-family: Arial;
+	font-size: 20px;
+	border-radius: 7px;
+	border-width: 8px;
+	padding: 5px;
+	margin-bottom: 15px;
+	
+	
 }
