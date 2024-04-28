@@ -30,7 +30,7 @@ public class GetReviewsProfileServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/final_project?user=root&password=root");
 			st = conn.createStatement();
 			st2 = conn.createStatement();
 			
@@ -44,8 +44,8 @@ public class GetReviewsProfileServlet extends HttpServlet {
 				flag = true;
 				UserReviewDatum r1 = new UserReviewDatum();
 				
-				rs2 = st.executeQuery("SELECT * FROM Movies WHERE MovieID = " + rs.getInt("MovieID"));
-				
+				rs2 = st2.executeQuery("SELECT * FROM Movies WHERE MovieID = " + rs.getInt("MovieID"));
+				rs2.next();
 				
 				r1.setMovieName(rs2.getString("Title"));
 				r1.setReviewContent(rs.getString("Content"));
