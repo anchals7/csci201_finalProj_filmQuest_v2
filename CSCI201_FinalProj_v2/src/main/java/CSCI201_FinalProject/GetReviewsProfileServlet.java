@@ -15,8 +15,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.sql.ResultSet;
 
-@WebServlet("/GetReviewsOfUser")
-public class GetReviewsOfUserServlet extends HttpServlet {
+@WebServlet("/GetReviewsForProfile")
+public class GetReviewsProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,27 +24,31 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 		
 		Connection conn = null;
 		Statement st = null;
+		Statement st2 = null;
 		ResultSet rs = null;
+		ResultSet rs2 = null;
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
-			st = conn.createStatement();			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
+			st = conn.createStatement();
+			st2 = conn.createStatement();
 			
-			int id = Integer.parseInt(request.getParameter("INSERT USER ID PARAMETER"));
+			int id = Integer.parseInt(request.getParameter("userID"));
 			rs = st.executeQuery("SELECT * FROM Reviews WHERE UserID = '" + id + "'");
-			List<Review> l1 = new ArrayList<Review>();
+			List<UserReviewDatum> l1 = new ArrayList<UserReviewDatum>();
 			boolean flag = false;
 			
 			while(rs.next()) {
 				
 				flag = true;
-				Review r1 = new Review();
+				UserReviewDatum r1 = new UserReviewDatum();
 				
-				r1.setUserID(rs.getInt("ReviewID"));
-				r1.setUserID(rs.getInt("UserID"));
-				r1.setMovieID(rs.getInt("MovieID"));
-				r1.setContent(rs.getString("Content"));
+				rs2 = st.executeQuery("SELECT * FROM Movies WHERE MovieID = " + rs.getInt("MovieID"));
+				
+				
+				r1.setMovieName(rs2.getString("Title"));
+				r1.setReviewContent(rs.getString("Content"));
 				r1.setDate(rs.getDate("Date"));
 				l1.add(r1);	
 			}
@@ -56,8 +60,7 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 				out.println("INVALID USER");
 			}
 			else {
-				
-				ReviewCollection revColl = new ReviewCollection();
+				UserReviewsCollection revColl = new UserReviewsCollection();
 				revColl.setData(l1);
 				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				String optr = gson.toJson(revColl);
@@ -80,8 +83,14 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 				if (st != null) {
 					st.close();
 				}
+				if(st2 != null) {
+					st2.close();
+				}
 				if (rs != null) {
 					rs.close();
+				}
+				if(rs2 != null) {
+					rs2.close();
 				}
 			} 
 			catch (SQLException sqle) {

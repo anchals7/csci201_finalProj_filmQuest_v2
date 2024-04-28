@@ -15,24 +15,23 @@
             </div>
 
             <div id="Buttons">
-                <img src="images/AccountIcon.png" />
-                <button id="LoginButton" onclick="GoHome()">
-                    Login / Create Account
-                </button>
-                <img src="images/SearchIcon.png" />
-                <button id="SearchButton">Search for Movies</button>
+                <img src="images/SearchIcon.png" style = "cursor: pointer;" onClick = "window.location.href = 'search.html;'" />
+                <button id="SearchButton" style = "cursor: pointer;" onClick = "window.location.href = 'search.html;'">Search for Movies</button>
             </div>
         </header>
         <main id="Boxes">
-            <form id="Login">
+            <form id="Login" name = "Login" style = "border-radius: 5px;" onSubmit = "event.preventDefault(); UserSignIn();">
                 <h1 id="Welcome">Welcome Back</h1>
                 <img id="Account" src="images/Account.png" />
                 <br />
-                <input type="text" id="Username" placeholder="username" />
+                <input type="text" id="Username" name = "Username" placeholder="username" required/>
                 <br />
-                <input type="password" id="Password" placeholder="password" />
+                <input type="password" id="Password" name = "Password" placeholder="password" required/>
                 <br />
-                <input type="submit" id="Submit" value="LOGIN" />
+                <input type="submit" style = "cursor: pointer; border-radius: 5px;" id="Submit" value="LOGIN"/>
+                <br />
+                <input type="button" style = "cursor: pointer; border-radius: 5px;" id="Submit2" value="... Or Sign Up" onClick = "window.location.href = 'signup.html;'"/>
+                
             </form>
         </main>
         <script src="login.js"></script>

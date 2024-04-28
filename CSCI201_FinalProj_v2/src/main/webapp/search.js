@@ -1,6 +1,4 @@
-
-
-  function handleSearchSubmit(event) {
+function handleSearchSubmit(event) {
     event.preventDefault();
     
     let resultsContainer = document.getElementById('resultsContainer');
@@ -70,12 +68,80 @@
 			
 			newCard.querySelector('.resultTitle').textContent=movie.title;
 			resultRow.appendChild(newCard);
+			
+			newCard.querySelector('.resultItem').addEventListener('click', () => {
+            displayAdditionalInfo(movie);
+        });
 		}
 	
   }
   
+
+  function displayAdditionalInfo(movie) {
+    let additionalInfoSection = document.getElementById('additionalInfo');
+    if (additionalInfoSection.style.display === 'block' && additionalInfoSection.dataset.title === movie.title) {
+        additionalInfoSection.style.display = 'none';
+        additionalInfoSection.dataset.title = ''; // Clear the dataset attribute
+    } else {
+		additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+                                       <p>Synopsis: ${movie.synopsis}</p>
+                                       <p>Rating: ${movie.rating}</p>
+                                       <p>Genre: ${movie.genre}</p>`;
+	    additionalInfoSection.style.display = 'block';
+	    additionalInfoSection.dataset.title = movie.title;		
+	}
+ 
+}
   
+
+
+function doNothing(){ alert("doing nothing");}  
+
+
+async function moveToPortfolio(){
+	
+	if(!document.getElementById("mover")){return;}
+	
+	if (!localStorage.getItem("userid")){
+		alert("not signed in");
+		return;
+	}
+	else {
+		
+		
+		let baseURL = window.location.origin + "/login.html/";
+	
+		var url = new URL("/CSCI201_FinalProj_v2/GetUserInfo", baseURL);
+		var params = {
+			userID: localStorage.getItem("userid"), field: "userID",
+		}
+		
+		url.search = new URLSearchParams(params).toString();
+		
+		const response = await fetch(url);
+		console.log(response);
+		const jsonObj = await response.json();
+		console.log(jsonObj);
+		
+		const optr = 
+        '<div id="profile-user">' +
+            '<img src="images/profile_img_placeholder.png" alt="Profile-Img-Placeholder">' +
+            '<div id="profile-user-info">' +
+                '<h2>' + jsonObj.data[0].name + '</h2>' +
+                '<p>' + jsonObj.data[0].username +'</p>' +
+            '</div>' +
+        '</div>' +
+	'  <div id="profile-menu">' +
+        '<div id="active" class="profile-menu-item" style = "font-size: 25px; font-family: Arial; border-radius: 7px; background-color: #B39BC7;">' +
+            'My Profile' +
+        '</div>' +
+    '</div>';
+        
+        document.getElementById("mover").innerHTML = optr;
+	}
+}
   
+
 
   /*function handleResult(title) {
 	 let movie = {
@@ -107,4 +173,3 @@
 	
     console.log('Result item clicked');
   }*/
-

@@ -2,6 +2,8 @@ body{
 	margin:0;
 	padding:0;
 	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
 	background-color:black;
 	}
 
@@ -150,11 +152,13 @@ body{
     flex-grow: 1;
     align-content:center;
     padding:0;
+    border-radius: 10px;
   }
 
 	.searchResults{
 	 color:#FFE9D0;
 	 font-size:3.5em;
+	 font-family: "Lexend Mega", sans-serif;
 	 padding:0 0 0 50px;
 	 margin-bottom:0px;
 	 text-decoration:underline;
@@ -226,10 +230,31 @@ body{
   #titleColTemplate{
   	display: none;
   }
+  
+  #additionalInfo {
+    display: none; /* Initially hide the additional info */
+    background-color: #E6F4F1;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    
+}
+
+#additionalInfo h2 {
+    color: #324A51;
+    font-size: 24px;
+}
+
+#additionalInfo p {
+    color: #00A8D6;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+ 
 
   #footer{
 	margin-top: 35px;
-	background-color: #324A51;
+	background-color: black;
 	color: white;
 	width: 100%;
 	margin-left: 0px;
@@ -240,12 +265,190 @@ body{
   	font-optical-sizing: auto;
   	font-weight: 400;
   	font-style: normal;
+  	position: absolute;
+	bottom: 0px;
 }
 
 #footer p{
 	padding: 15px;
+	background-color: #324A51;
 	margin: 0px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
 }
 
+.ButtonProfile{
+	
+	background-color: black;
+	color: white;
+	border: 0px;
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+	font-weight: 400;
+  	font-style: normal;
+  	font-size: 25px;
+  	margin-top: 23px;
+  	margin-right: 35px;
+  	cursor: pointer;	
+}
+.ButtonProfile:hover{
+	
+	text-decoration: underline;
+}
 
-  
+#profile-user{
+	color: white;
+	margin-top: 35px;
+}
+
+#profile-user img{
+	width: 115px;
+	height: auto;
+	float: left;
+	margin-left: 45px;
+}
+
+#profile-user-info {
+	float: left;
+}
+
+#profile-user-info h2{
+	margin-top: 35px;
+	margin-bottom: 0px;
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+	font-weight: 400;
+
+}
+
+#profile-user-info p{
+	margin-top: 5px;
+	margin-bottom: 0px;
+	font-family: "Fira Sans Extra Condensed", sans-serif;
+	font-weight: 300;
+	font-size: 21px;
+}
+
+#profile-menu {
+	background-color: #B39BC7;
+	float: none;
+	margin-top: 170px;
+	width: 1200px;
+	margin-top: 170px;
+	margin-bottom: 39px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 7px;
+}
+
+.profile-menu-item {
+	color: #BBAAC9;
+	background-color: #7E6791;
+	display: inline-block;
+	width: 170px;
+	text-align: center;
+	margin-right: 5px;
+}
+
+.profile-menu-item a{
+	font-family: "Gentium Book Plus", serif;
+	font-size: 21px;
+	margin: 7px;
+	padding: 7px;
+	text-decoration: none;
+	color: #BBAAC9;
+}
+
+.profile-menu-item:hover a{
+	text-decoration: underline;
+}
+
+#active{
+	color: #EEE8A9;
+	background-color: #9E4300;
+}
+
+#active a{
+	color: #EEE8A9;
+}
+
+#my-reviews {
+	background-color: #E6F4F1;
+	margin: 5px auto;
+	width: 1200px;
+	height: 390px;
+}
+
+#my-recs {
+	background-color: #E6F4F1;
+	margin: 5px auto;
+	width: 1200px;
+	height: 390px;
+}
+
+#my-reviews h1 {
+	color: #324A51;
+	padding-top: 13px;
+	padding-left: 21px;
+	margin-bottom: 7px;
+	font-family: "Graduate", serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+#my-recs h1 {
+	color: #324A51;
+	padding-top: 13px;
+	padding-left: 21px;
+	margin-bottom: 7px;
+	font-family: "Graduate", serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+#my-reviews h6 {
+	color: #324A51;
+	display: block;
+	padding-top: 261px;
+	margin-left: 19px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-family: "Halant", serif;
+  	font-weight: 600;
+  	font-size: 17px;
+}
+
+#my-recs h6 {
+	color: #324A51;
+	display: block;
+	padding-top: 261px;
+	margin-left: 19px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-family: "Halant", serif;
+  	font-weight: 600;
+  	font-size: 17px;
+}
+
+.review-item{
+	float: left;
+	margin-left: 90px;
+	text-align: center;
+	margin-top: 9px;
+}
+
+.review-item p{
+	color: #005B8F;
+	margin-bottom: 1px;
+	margin-top: 7px;
+	padding: 0px;
+	font-family: "Halant", serif;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+.review-item img{
+	width: 130px;
+	height: auto;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}

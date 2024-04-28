@@ -15,8 +15,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.sql.ResultSet;
 
-@WebServlet("/GetReviewsOfUser")
-public class GetReviewsOfUserServlet extends HttpServlet {
+@WebServlet("/GetUserInfo")
+public class GetUserInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,44 +28,30 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();			
 			
-			int id = Integer.parseInt(request.getParameter("INSERT USER ID PARAMETER"));
-			rs = st.executeQuery("SELECT * FROM Reviews WHERE UserID = '" + id + "'");
-			List<Review> l1 = new ArrayList<Review>();
-			boolean flag = false;
-			
-			while(rs.next()) {
-				
-				flag = true;
-				Review r1 = new Review();
-				
-				r1.setUserID(rs.getInt("ReviewID"));
-				r1.setUserID(rs.getInt("UserID"));
-				r1.setMovieID(rs.getInt("MovieID"));
-				r1.setContent(rs.getString("Content"));
-				r1.setDate(rs.getDate("Date"));
-				l1.add(r1);	
-			}
-			
-			PrintWriter out = response.getWriter();
-			
-			if(!flag) {
-				
-				out.println("INVALID USER");
-			}
-			else {
-				
-				ReviewCollection revColl = new ReviewCollection();
-				revColl.setData(l1);
+			int id = Integer.parseInt(request.getParameter("userID"));
+			System.out.println(id);
+			rs = st.executeQuery("SELECT * FROM Users WHERE UserID = '" + id + "'");
+			if(rs.next()) {
+				System.out.println(rs.getString("DisplayName"));
+				UserDatum ud1 = new UserDatum();
+				ud1.setName(rs.getString("DisplayName"));
+				ud1.setUsername(rs.getString("UserName"));
+				ud1.setUserID(rs.getInt("UserID"));
+				UserCollection uc1 = new UserCollection();
+				List<UserDatum> l1 = new ArrayList<UserDatum>();
+				l1.add(ud1);
+				uc1.setL1(l1);
 				Gson gson = new GsonBuilder().setPrettyPrinting().create();
-				String optr = gson.toJson(revColl);
+				String optr = gson.toJson(uc1);
+				System.out.println(optr);
+				PrintWriter out = response.getWriter();
 				out.println(optr);
+				out.flush();
+				out.close();
 			}
-			
-			out.flush();
-			out.close();	
 		}
 		catch(SQLException sqle) {
 			sqle.printStackTrace();
