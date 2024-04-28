@@ -1,69 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="search.css">
-	<script src="search.js" defer></script>
-	<title>Search Results</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="search.css" />
+        <script src="search.js" defer></script>
+        <title>Search Results</title>
+    </head>
 
+    <body>
+        <div class="content">
+            <div id="header">
+                <div id="logo">
+                    <img src="images/quest_logo.png" alt="Website-Logo" />
+                    <h1>FilmQuest</h1>
+                </div>
+                <div id="menu-items">
+                    <div class="menu-item">
+                        <img
+                            src="images/profile_menu_holder.png"
+                            alt="My-Profile-Logo" />
+                        <input
+                            type="button"
+                            class="ButtonProfile"
+                            value="My Profile"
+                            onclick="moveToPortfolio();" />
+                    </div>
+                    <div class="menu-item">
+                        <img src="images/search.png" alt="Search-Logo" />
+                        <a href="search.html">Search For Movies</a>
+                    </div>
+                    <div class="menu-item">
+                        <img
+                            src="images/rating.png"
+                            alt="Ratings-Reviews-Logo" />
+                        <a href="myreviews.html">My Reviews</a>
+                    </div>
+                    <div class="menu-item">
+                        <img
+                            src="images/quest_logo.png"
+                            alt="Ratings-Reviews-Logo" />
+                        <a href="login.html"> Login/SignUp </a>
+                    </div>
+                </div>
+            </div>
 
-<body>
-<div class="content">
-  <div id="header">
-            <div id="logo">
-                <img src="images/quest_logo.png" alt="Website-Logo">
-                <h1>FilmQuest</h1>
+            <div id="mover">
+                <form class="searchBar" onsubmit="handleSearchSubmit(event)">
+                    <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&"
+                        alt="Search icon"
+                        class="searchBarIcon" />
+                    <input
+                        type="text"
+                        class="search-input"
+                        placeholder="Search Keyword"
+                        aria-label="Search Keyword"
+                        required />
+                </form>
+                <div id="spacer"></div>
+                <div id="resultsContainer">
+                    <h2 class="searchResults">Search Results</h2>
+                    <div class="resultsGrid">
+                        <div class="resultsRow">
+                            <div class="resultCol" id="titleColTemplate">
+                                <button class="resultItem">
+                                    <div class="resultTitle">Title</div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="menu-items">
-                <div class="menu-item">
-                    <img src="images/profile_menu_holder.png" alt="My-Profile-Logo" style = "cursor: pointer;" onclick = "moveToPortfolio();">
-                    <input type = "button" class = "ButtonProfile" value = "My Profile" onclick = "moveToPortfolio();">
+            \
+            <div id="additionalInfo">
+                <!-- Add your additional information here -->
+                <h2>Title of the Movie</h2>
+                <p>Description of the movie goes here...</p>
+                <p>Rating</p>
+                <p>Genre</p>
+            </div>
+            <!--REVIEWS TO DISPLAY TO USER-->
+            <!--
+            <div id="Reviews" style="color: white">
+                <div id="insert_id_here">
+                    <p class="MovieID">Movie ID: 4</p>
+                    <p class="Date">Date: 10-4-2009</p>
+                    <p class="ReviewText">This movie sucked.</p>
+                    <br />
                 </div>
-                <div class="menu-item">
-                    <img src="images/search.png" alt="Search-Logo" style = "cursor: pointer;" onclick = "window.location.href = 'search.html';">
-                    <a href="search.html">Search For Movies</a>
+                <div id="insert_id_here">
+                    <p class="MovieID">Movie ID: 4</p>
+                    <p class="Date">Date: 10-4-2009</p>
+                    <p class="ReviewText">This movie sucked.</p>
                 </div>
-                <div class="menu-item">
-                	<img src="images/quest_logo.png" alt="Ratings-Reviews-Logo" style = "cursor: pointer;" onclick = "window.location.href = 'login.html';">
-                    <a href="login.html"> Login/SignUp </a>
-                </div>
+            </div>
+            -->
+            <div id="footer">
+                <p>@FilmQuest distributed by USC CSCI 201</p>
             </div>
         </div>
- 
- <div id = "mover">     
-  <form class="searchBar" onsubmit="handleSearchSubmit(event)">
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed3e89a5a8dd2b49175b4ffae641132c9c610c5b755a973915cbe269d76d02be?apiKey=0ec2231b00044b34988ba4a62b9c20c5&" alt="Search icon" class="searchBarIcon" />
-    <input type="text" class="search-input" placeholder="Search Keyword" aria-label="Search Keyword" required/>
-  </form>
-  <div id="spacer"></div>
-  <div id="resultsContainer">
-  <h2 class="searchResults">Search Results</h2>
-    <div class="resultsGrid">
-      <div class="resultsRow">
-       <div class="resultCol" id="titleColTemplate">
-          <button class="resultItem" >
-            <div class="resultTitle">
-              Title
-            </div>
-          </button>
-        </div>
-        
-      </div>
-    </div>
- </div>
-   
-  </div>\
-  <div id="additionalInfo">
-            <!-- Add your additional information here -->
-            <h2>Title of the Movie</h2>
-		    <p>Description of the movie goes here...</p>
-		    <p>Rating</p>
-		    <p>Genre</p>
-        </div>
-  <div id="footer">
-            <p>@FilmQuest distributed by USC CSCI 201</p>
-      </div>
-</div>
-</body>
+    </body>
 </html>
