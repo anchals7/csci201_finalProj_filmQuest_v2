@@ -3,6 +3,7 @@ body {
     padding: 0;
     width: 100%;
     background-color: black;
+    overflow-x: hidden;
 }
 
 body {
@@ -149,20 +150,26 @@ body {
 }
 
 #resultsContainer {
-    background-color: #91705a;
+    background-color: black;
     display: none;
     margin-top: 36px;
-    width: 100%;
+    
+    width: 71.5%;
+    position: relative;
+    left: 275px;
+    border-radius: 12px;
+   
     flex-direction: column;
     flex-grow: 1;
     align-content: center;
-    padding: 0;
+    padding: 10px;
+    border-width: 20px;
 }
 
 .searchResults {
-    color: #ffe9d0;
-    font-size: 3.5em;
-    padding: 0 0 0 50px;
+    color: White;
+    font-size: 50px;
+    font-family: Arial;
     margin-bottom: 0px;
     text-decoration: underline;
 }
@@ -180,9 +187,8 @@ body {
 }
 
 .resultCol {
-    flex-direction: column;
     line-height: normal;
-    width: 33%;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -197,7 +203,6 @@ body {
     flex-direction: column;
     font-size: 33px;
     color: #fff;
-    font-weight: 400;
     text-align: center;
     background: none;
     border: none;
@@ -217,10 +222,14 @@ body {
 .resultTitle {
     font-family: "Fanwood Text", sans-serif;
     margin-top: 46px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 2em;
-    line-height: 200px;
+    font-size: 40px;
+    line-height: 70px;
+    background-color: #7e6791;
+    font-weight: bold;
+    padding: 10px;
+    border-width: 15px;
+    border-radius: 12px;
+    text-align: center;
 }
 
 #titleColTemplate {
@@ -328,6 +337,7 @@ body {
     margin-bottom: 39px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 7px;
 }
 
 .profile-menu-item {
@@ -354,7 +364,11 @@ body {
 
 #active {
     color: #eee8a9;
-    background-color: #9e4300;
+    font-family: Arial;
+    font-size: 20px;
+    background-color: #8B008B;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 
 #active a {
@@ -362,7 +376,7 @@ body {
 }
 
 #my-reviews {
-    background-color: #e6f4f1;
+    background-color: black;
     margin: 5px auto;
     width: 1200px;
     height: 390px;
@@ -376,11 +390,12 @@ body {
 }
 
 #my-reviews h1 {
-    color: #324a51;
-    padding-top: 13px;
-    padding-left: 21px;
+    color: white;
+    padding-top: 5px;
+    padding-left: 0px;
+    background-color: black;
     margin-bottom: 7px;
-    font-family: "Graduate", serif;
+    font-family: Arial;
     font-style: normal;
     font-weight: 400;
 }
@@ -446,7 +461,7 @@ body {
 /*FORMATTING FOR REVIEW PORTFOLIO*/
 
 .Reviews {
-    background-color: gray;
+    background-color: black;
     color: white;
     font-family: "Arial";
     font-size: 25px;
@@ -454,7 +469,7 @@ body {
     padding: 25px;
     position: relative;
     top: 100px;
-    left 100px;
+    left: 100px;
     width: 600px;
     height: 200px;
     border-radius: 5px;
@@ -467,4 +482,13 @@ body {
     text-align: center;
     width: 700px;
     display: flex;
+}
+
+.ReviewClass{
+	
+	background-color: red;
+	color: white;
+	border-radius: 7px;
+	
+	
 }

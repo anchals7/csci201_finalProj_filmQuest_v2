@@ -20,7 +20,7 @@ async function UserSignIn(){
 			document.getElementById("Login").reset();
 		}
 		else {
-			localStorage.setItem("userid", text.substring(0, text.length - 2));
+			sessionStorage.setItem("userid", text.substring(0, text.length - 2));
 			console.log(text);
 			window.location.href = "search.html";
 		}

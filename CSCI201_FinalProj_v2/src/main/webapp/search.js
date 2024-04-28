@@ -7,7 +7,7 @@ function handleSearchSubmit(event) {
     spacer.style.display = "none";
     resultsContainer.innerHTML = `<h2 class="searchResults">Search Results</h2>
 								    <div class="resultsGrid">
-								      <div class="resultsRow">
+								      <div class="resultsRow" id = "labomba">
 								       <div class="resultCol" id="titleColTemplate">
 								          <button class="resultItem" >
 								            <div class="resultTitle">
@@ -62,7 +62,7 @@ function displayMovieTitles(movies, resultRow) {
         let newCard = document
             .getElementById("titleColTemplate")
             .cloneNode(true);
-        newCard.style.display = "flex";
+        //newCard.style.display = "flex";
         newCard.id = "";
 
         newCard.querySelector(".resultTitle").textContent = movie.title;
@@ -75,7 +75,12 @@ function displayMovieTitles(movies, resultRow) {
 }
 
 function displayAdditionalInfo(movie) {
-    let additionalInfoSection = document.getElementById("additionalInfo");
+    let additionalInfoSection = document.getElementById("resultsContainer");
+    additionalInfoSection.style.backgroundColor = '#7e6791';
+    additionalInfoSection.style.fontFamily = 'Arial';
+    additionalInfoSection.style.color = 'white';
+
+    
     if (
         additionalInfoSection.style.display === "block" &&
         additionalInfoSection.dataset.title === movie.title
@@ -101,7 +106,7 @@ async function moveToPortfolio() {
         return;
     }
 
-    if (!localStorage.getItem("userid")) {
+    if (!sessionStorage.getItem("userid")) {
         alert("not signed in");
         return;
     } else {
@@ -109,7 +114,7 @@ async function moveToPortfolio() {
 
         var url = new URL("/CSCI201_FinalProj_v2/GetUserInfo", baseURL);
         var params = {
-            userID: localStorage.getItem("userid"),
+            userID: sessionStorage.getItem("userid"),
             field: "userID"
         };
 
@@ -150,27 +155,35 @@ async function moveToPortfolio() {
 }
 
 async function ShowReviews(name, username) {
-    if (!localStorage.getItem("userid")) {
+    if (!sessionStorage.getItem("userid")) {
         alert("not signed in");
         return;
     }
     let baseURL = window.location.origin + "/search.html/";
     var url = new URL("/CSCI201_FinalProj_v2/GetReviewsForProfile", baseURL);
     var params = {
-        userID: localStorage.getItem("userid"),
+        userID: sessionStorage.getItem("userid"),
         field: "userID"
     };
 
     url.search = new URLSearchParams(params).toString();
 
     const response = await fetch(url);
+   // const rString = response.toString();
     console.log(response);
+    
+    /*
+    if(rString.substring(0, response.length -2) == "NO REVIEWS"){
+		return;
+	}
+	*/
+    
     const jsonObj = await response.json();
     console.log(jsonObj);
     let reviews = `<div id="Reviews">`;
 
     for (var i = 0; i < jsonObj.data.length; ++i) {
-        reviews += `<div id="insert_id_here">
+        reviews += `<div id="portfolioReviewsId" class = "ReviewClass">
                     <p class="MovieID">${jsonObj.data[i].movieName}</p>
                     <p class="ReviewText">${jsonObj.data[i].reviewContent}</p>
                     <br />
