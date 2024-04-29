@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,18 +37,21 @@ public class ReviewServlet extends HttpServlet {
             //TODO change if the frontend only sends username and movie name. In that case, we need to query the database to get the user ID and movie ID
             String userID = request.getParameter("userID");
             String movieID = request.getParameter("movieID");
-            String content = request.getParameter("content");
+            String content = request.getParameter("userReview");
+            System.out.println("userID: " + userID + "moveID: "+movieID);
             //TODO verify that this is accepted to insert a date into SQL
             Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String dateString = formatter.format(date);
 
             rs = st.executeQuery("SELECT * FROM Users WHERE UserID = " + userID + ";");
 
-            if(rs.next()){
+            if(!rs.next()){
                 //TODO flesh this out so that it signifies to the frontend that this is an unregistered user.
                 //TODO also verify that the logic is correct. i.e. if we only reach this servlet if the user is already registered
                 out.println("Invalid User ID");
             }else {
-                st.executeUpdate("INSERT INTO Reviews(UserID, MovieID, Content) VALUES (" + userID + ", " + movieID + ", '" + content + "', DATE '" + date + "' );");
+                st.executeUpdate("INSERT INTO Reviews(UserID, MovieID, Content, Date) VALUES (" + Integer.parseInt(userID) + ", " + Integer.parseInt(movieID) + ", '" + content + "', '" + dateString + "' );");
                 out.println("Review Submitted");
             }
 
