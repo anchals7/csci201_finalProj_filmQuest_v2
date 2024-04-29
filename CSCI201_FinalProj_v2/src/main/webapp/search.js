@@ -79,8 +79,33 @@ function displayAdditionalInfo(movie) {
     additionalInfoSection.style.backgroundColor = '#7e6791';
     additionalInfoSection.style.fontFamily = 'Arial';
     additionalInfoSection.style.color = 'white';
+    
 
-	
+	// Define a function to fetch movie reviews
+    async function fetchMovieReviews(movieID) {
+        const url = `/CSCI201_FinalProj_v2/GetReviewsOfMovie?movieID=${movieID}`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Failed to fetch movie reviews');
+            }
+            const reviewCollection = await response.json();
+            return reviewCollection.data; // Return only the reviews array
+        } catch (error) {
+            console.error('Error fetching movie reviews:', error);
+            return []; // Return an empty array if there's an error
+        }
+    }
+    
+    function displayReviews(reviews) {
+        const reviewList = document.getElementById("reviewList");
+        reviewList.innerHTML = ""; // Clear existing content
+        reviews.forEach(review => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Review: ${review.content}, Date of Review: ${review.date}`;
+            reviewList.appendChild(listItem);
+        });
+    }
     
     if (
         additionalInfoSection.style.display === "block" &&
@@ -93,6 +118,8 @@ function displayAdditionalInfo(movie) {
     } else {
         if(sessionStorage.getItem("userid")){
 			console.log(movie.movieID);
+			fetchMovieReviews(movie.movieID)
+                .then(reviews => {
 			additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
                                        <p>Synopsis: ${movie.synopsis}</p>
                                        <p>Rating: ${movie.rating}</p>
@@ -106,7 +133,12 @@ function displayAdditionalInfo(movie) {
 						                		<input type="text" class="review-input" id="userReview" placeholder="What do you think of this movie? Share your thoughts!" aria-label="What do you think of this movie? Share your thoughts!" required/><br>
 						                   		<input type="submit" value="Submit">
 						                   </form>
-					                   </div>`;
+					                   </div>
+					                   <div id="reviewsSection">
+				                            <h3>Movie Reviews</h3>
+				                            <ul id="reviewList"></ul>
+				                        </div>`;
+                        
 			document.getElementById("container").style.backgroundColor = '#E6F4F1';
 			document.getElementById("container").style.padding = '20px';
 			document.getElementById("container").style.color = '#00A8D6';
@@ -117,13 +149,74 @@ function displayAdditionalInfo(movie) {
 			document.getElementById("container").querySelector("#userReview").style.height = '115px';
 			document.getElementById("container").querySelector("#userReview").style.padding = '12px';
 			document.getElementById("container").querySelector("#userReview").style.margin = '7px';
+			
+			displayReviews(reviews);
+			
 			const reviewForm = document.querySelector('.reviewForm');
         	reviewForm.addEventListener('submit', submitReview);
-		} else {
+        	 })
+        	 .catch(error => {
+				 console.error('Error fetching movie reviews:', error);
+                    // Still display movie information even if reviews couldn't be fetched
+                    additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+                        <p>Synopsis: ${movie.synopsis}</p>
+                        <p>Rating: ${movie.rating}</p>
+                        <p>Genre: ${movie.genre}</p>
+                        <div id="container">
+                            <form class="reviewForm">
+                                <input type="hidden" id="movieID" name="movieID" value="">
+                                <label for="ratingNum">Your Rating (Out of 5): </label><br>
+                                <input type="text" class="review-input" id="ratingNum" aria-label="Enter Number Rating out of 5" required/><br>
+                                <label for="userReview">Your Review: </label><br>
+                                <input type="text" class="review-input" id="userReview" placeholder="What do you think of this movie? Share your thoughts!" aria-label="What do you think of this movie? Share your thoughts!" required/><br>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                        <div id="reviewsSection">
+                            <h3>Movie Reviews</h3>
+                            <p>Failed to fetch reviews. Please try again later.</p>
+                        </div>`;
+                        document.getElementById("container").style.backgroundColor = '#E6F4F1';
+                    document.getElementById("container").style.padding = '20px';
+                    document.getElementById("container").style.color = '#00A8D6';
+                    document.getElementById("container").querySelector("#ratingNum").style.width = '30px';
+                    document.getElementById("container").querySelector("#ratingNum").style.padding = '12px';
+                    document.getElementById("container").querySelector("#ratingNum").style.margin = '7px';
+                    document.getElementById("container").querySelector("#userReview").style.width = '430px';
+                    document.getElementById("container").querySelector("#userReview").style.height = '115px';
+                    document.getElementById("container").querySelector("#userReview").style.padding = '12px';
+                    document.getElementById("container").querySelector("#userReview").style.margin = '7px';
+					const reviewForm = document.querySelector('.reviewForm');
+                    reviewForm.addEventListener('submit', submitReview);
+                });
+		} else {                       
+            fetchMovieReviews(movie.movieID)
+                .then(reviews => {
 			additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
                                        <p>Synopsis: ${movie.synopsis}</p>
                                        <p>Rating: ${movie.rating}</p>
-                                       <p>Genre: ${movie.genre}</p>`;
+                                       <p>Genre: ${movie.genre}</p>
+					                   <div id="reviewsSection">
+                            <h3>Movie Reviews</h3>
+                            <ul id="reviewList"></ul>
+                        </div>`;
+			 // Display movie reviews
+                    
+                    displayReviews(reviews);
+        	
+        	 })
+        	 .catch(error => {
+				 console.error('Error fetching movie reviews:', error);
+                    // Still display movie information even if reviews couldn't be fetched
+                    additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+                        <p>Synopsis: ${movie.synopsis}</p>
+                        <p>Rating: ${movie.rating}</p>
+                        <p>Genre: ${movie.genre}</p>
+                        <div id="reviewsSection">
+                            <h3>Movie Reviews</h3>
+                            <p>Failed to fetch reviews. Please try again later.</p>
+                        </div>`;
+                });
 		}
 		additionalInfoSection.style.display = "block";
         //additionalInfoSection.dataset.title = movie.title;
