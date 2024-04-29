@@ -31,8 +31,8 @@ public class GetReviewsOfMovieServlet extends HttpServlet {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();			
 			
-			int id = Integer.parseInt(request.getParameter("INSERT MOVIE ID PARAMETER"));
-			rs = st.executeQuery("SELECT * FROM Reviews WHERE MovieID = '" + id + "'");
+			int id = Integer.parseInt(request.getParameter("movieID"));
+			rs = st.executeQuery("SELECT * FROM reviews WHERE MovieID = '" + id + "'");
 			List<Review> l1 = new ArrayList<Review>();
 			boolean flag = false;
 			
