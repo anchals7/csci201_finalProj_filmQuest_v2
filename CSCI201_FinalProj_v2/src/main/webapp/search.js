@@ -80,21 +80,97 @@ function displayAdditionalInfo(movie) {
     additionalInfoSection.style.fontFamily = 'Arial';
     additionalInfoSection.style.color = 'white';
 
+	
     
     if (
         additionalInfoSection.style.display === "block" &&
-        additionalInfoSection.dataset.title === movie.title
+        //additionalInfoSection.dataset.title === movie.title
+        additionalInfoSection.dataset.movieId === movie.movieID
     ) {
         additionalInfoSection.style.display = "none";
-        additionalInfoSection.dataset.title = ""; // Clear the dataset attribute
+        //additionalInfoSection.dataset.title = ""; // Clear the dataset attribute
+        additionalInfoSection.dataset.movieId = "";
     } else {
-        additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+        if(sessionStorage.getItem("userid")){
+			console.log(movie.movieID);
+			additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
+                                       <p>Synopsis: ${movie.synopsis}</p>
+                                       <p>Rating: ${movie.rating}</p>
+                                       <p>Genre: ${movie.genre}</p>
+                                       <div id="container">
+	                                       <form class="reviewForm">
+	                                       		<input type="hidden" id="movieID" name="movieID" value="">
+	                                       		<label for="ratingNum">Your Rating (Out of 5): </label><br>
+						                		<input type="text" class="review-input" id="ratingNum" aria-label="Enter Number Rating out of 5" required/><br>
+						                		<label for="userReview">Your Review: </label><br>
+						                		<input type="text" class="review-input" id="userReview" placeholder="What do you think of this movie? Share your thoughts!" aria-label="What do you think of this movie? Share your thoughts!" required/><br>
+						                   		<input type="submit" value="Submit">
+						                   </form>
+					                   </div>`;
+			document.getElementById("container").style.backgroundColor = '#E6F4F1';
+			document.getElementById("container").style.padding = '20px';
+			document.getElementById("container").style.color = '#00A8D6';
+			document.getElementById("container").querySelector("#ratingNum").style.width = '30px';
+			document.getElementById("container").querySelector("#ratingNum").style.padding = '12px';
+			document.getElementById("container").querySelector("#ratingNum").style.margin = '7px';
+			document.getElementById("container").querySelector("#userReview").style.width = '430px';
+			document.getElementById("container").querySelector("#userReview").style.height = '115px';
+			document.getElementById("container").querySelector("#userReview").style.padding = '12px';
+			document.getElementById("container").querySelector("#userReview").style.margin = '7px';
+			const reviewForm = document.querySelector('.reviewForm');
+        	reviewForm.addEventListener('submit', submitReview);
+		} else {
+			additionalInfoSection.innerHTML = `<h2>${movie.title}</h2>
                                        <p>Synopsis: ${movie.synopsis}</p>
                                        <p>Rating: ${movie.rating}</p>
                                        <p>Genre: ${movie.genre}</p>`;
-        additionalInfoSection.style.display = "block";
-        additionalInfoSection.dataset.title = movie.title;
+		}
+		additionalInfoSection.style.display = "block";
+        //additionalInfoSection.dataset.title = movie.title;
+        additionalInfoSection.dataset.movieId = movie.movieID.toString();
+        console.log("movieID_dataset: "+ additionalInfoSection.dataset.movieId);
     }
+}
+
+
+
+function submitReview(event) {
+    event.preventDefault();
+    
+
+    const movieID = document.getElementById('resultsContainer').dataset.movieId;
+    const ratingNum = document.getElementById('ratingNum').value;
+    const userReview = document.getElementById('userReview').value;
+    const userID = sessionStorage.getItem('userid'); // Get the user ID from sessionStorage
+
+	const formData = new FormData();
+	formData.append('userID', userID);
+	formData.append('movieID', movieID);
+	formData.append('userReview', userReview);
+	console.log("userID: " + userID + " movieID: " + movieID + " userReview: " + userReview);
+	
+	
+    const url = `/CSCI201_FinalProj_v2/Review?userID=${userID}&movieID=${movieID}&userReview=${userReview}`;
+    const params = {
+        userID: userID,
+        movieID: movieID,
+        ratingNum: ratingNum,
+        userReview: userReview
+    };
+
+    fetch(url, {
+        method: 'GET'
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data); // Log the response from the server
+        window.location.href = "search.html";
+        // You can handle the response as needed, e.g., display a success message to the user
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle any errors that occur during the fetch request
+    });
 }
 
 function doNothing() {
