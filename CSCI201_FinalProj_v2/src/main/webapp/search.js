@@ -42,14 +42,15 @@ function handleSearchSubmit(event) {
             const resultGrid = document.querySelector(".resultsGrid");
             const resultRow = document.querySelector(".resultsRow");
             if (movieList.length === 0) {
+				console.log("made it here");
                 resultGrid.innerHTML =
-                    '<h2 class="noResult">No Results Found</h2>';
+                    '<h2 class="noResult" style="font-size:2em; color:white;">No Results Found</h2>' ;
             } else {
                 displayMovieTitles(movieList, resultRow);
             }
         })
         .catch((error) => {
-            console.log("request failed", error);
+            console.log("request failed, no movies found", error);
         });
 
     console.log("Search form submitted");
@@ -92,7 +93,8 @@ function displayAdditionalInfo(movie) {
             const reviewCollection = await response.json();
             return reviewCollection.data; // Return only the reviews array
         } catch (error) {
-            console.error('Error fetching movie reviews:', error);
+            //console.error('Error fetching movie reviews:', error);
+            console.log("empty - no reviews for this movie");
             return []; // Return an empty array if there's an error
         }
     }
@@ -271,6 +273,7 @@ function doNothing() {
 }
 
 async function moveToPortfolio() {
+	console.log("moving");
     if (!document.getElementById("mover")) {
         return;
     }
@@ -290,7 +293,7 @@ async function moveToPortfolio() {
         url.search = new URLSearchParams(params).toString();
 
         const response = await fetch(url);
-        console.log(response);
+        //console.log(response);
         const jsonObj = await response.json();
         console.log(jsonObj);
 
@@ -338,18 +341,11 @@ async function ShowReviews(name, username) {
     url.search = new URLSearchParams(params).toString();
 
     const response = await fetch(url);
-   // const rString = response.toString();
-    console.log(response);
     
-    /*
-    if(rString.substring(0, response.length -2) == "NO REVIEWS"){
-		return;
-	}
-	*/
+    let reviews = `<div id="Reviews">`;		
     
     const jsonObj = await response.json();
     console.log(jsonObj);
-    let reviews = `<div id="Reviews">`;
 
     for (var i = 0; i < jsonObj.data.length; ++i) {
         reviews += `<div id="portfolioReviewsId" class = "ReviewClass">
@@ -360,8 +356,8 @@ async function ShowReviews(name, username) {
                     <br />
                 </div>`;
     }
-    reviews += `</div>`;
-    console.log(reviews);
+    reviews += `</div><br />`;
+   // console.log(reviews);
     const optr = `<div id="profile-user">
             <img src="images/profile_img_placeholder.png" alt="Profile-Img-Placeholder">
             <div id="profile-user-info">
@@ -377,10 +373,13 @@ async function ShowReviews(name, username) {
             <div id="my-reviews">
             <h1>My Reviews </h1>
             ${reviews}
-            </div>
+            <p class = "footer2">@FilmQuest distributed by USC CSCI 201</p>
             </div>`;
-    console.log(optr);
+    //console.log(optr);
+   // optr += '<br />';
     document.getElementById("mover").innerHTML = optr;
+    
+    document.getElementById("footer").innerHTML = '';
 }
 
 /*function handleResult(title) {

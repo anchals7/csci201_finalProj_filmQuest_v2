@@ -30,18 +30,16 @@ public class GetReviewsProfileServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/final_project?user=root&password=root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();
 			st2 = conn.createStatement();
 			
 			int id = Integer.parseInt(request.getParameter("userID"));
 			rs = st.executeQuery("SELECT * FROM Reviews WHERE UserID = '" + id + "'");
 			List<UserReviewDatum> l1 = new ArrayList<UserReviewDatum>();
-			boolean flag = false;
 			
 			while(rs.next()) {
 				
-				flag = true;
 				UserReviewDatum r1 = new UserReviewDatum();
 				
 				rs2 = st2.executeQuery("SELECT * FROM Movies WHERE MovieID = " + rs.getInt("MovieID"));
@@ -54,18 +52,12 @@ public class GetReviewsProfileServlet extends HttpServlet {
 			}
 			
 			PrintWriter out = response.getWriter();
-			
-			if(!flag) {
-				
-				out.println("INVALID USER");
-			}
-			else {
-				UserReviewsCollection revColl = new UserReviewsCollection();
-				revColl.setData(l1);
-				Gson gson = new GsonBuilder().setPrettyPrinting().create();
-				String optr = gson.toJson(revColl);
-				out.println(optr);
-			}
+
+			UserReviewsCollection revColl = new UserReviewsCollection();
+			revColl.setData(l1);
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			String optr = gson.toJson(revColl);
+			out.println(optr);
 			
 			out.flush();
 			out.close();	

@@ -1,7 +1,6 @@
 package CSCI201_FinalProject;
 
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +27,6 @@ public class GetMovieServlet extends HttpServlet {
 		Connection conn = null;
 		Statement st = null;
 		ResultSet rs = null;
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -45,12 +43,10 @@ public class GetMovieServlet extends HttpServlet {
 //			printWriter.flush();
 //			String output1 = stringWriter.toString();
 //			System.out.println(output1);
-			boolean flag = false;
 			List<Movie> l1 = new ArrayList<Movie>();
 			
 			while (rs.next()) {
 				
-				flag = true;
 				Movie m1 = new Movie();
 				
 				m1.setMovieID((rs.getInt("MovieID")));
@@ -62,19 +58,14 @@ public class GetMovieServlet extends HttpServlet {
 				l1.add(m1);
 			}
 			PrintWriter out = response.getWriter();
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			
-			if(!flag) {
-				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-				String error = "INVALID MOVIE";
-				out.println(gson.toJson(error));	
-			}
-			else {
-				response.setStatus(HttpServletResponse.SC_OK);
-				MovieCollection movColl = new MovieCollection();
-				movColl.setData(l1);
-				String optr = gson.toJson(movColl);
-				out.println(optr);
-			}
+			response.setStatus(HttpServletResponse.SC_OK);
+			MovieCollection movColl = new MovieCollection();
+			movColl.setData(l1);
+			String optr = gson.toJson(movColl);
+			out.println(optr);
+			
 			out.flush();
 			out.close();
 		}
