@@ -143,6 +143,7 @@ body {
     color: inherit;
     margin: 0;
     float: left;
+    border-radius: 12px;
 }
 
 #spacer {
@@ -279,12 +280,11 @@ body {
 
 #footer p {
 	width: 100%;
-    padding: 15px;
+    padding: 10px;
     background-color: #324a51;
     margin: 0px;
     position: absolute;
-    bottom: -370px;
-    left: 0px;
+    bottom: 0px;
 }
 
 .ButtonProfile {
@@ -502,4 +502,17 @@ body {
 	margin-bottom: 15px;
 	
 	
+}
+
+.footer2 {
+    
+    width: 27%;
+    padding: 10px;
+    font-family: "Exo", sans-serif;
+    background-color: #324a51;
+    color: white;
+    margin: 0px;
+    position: relative;
+    top: 20px;
+    border-radius: 10px;
 }
