@@ -28,10 +28,10 @@ public class GetReviewsOfUserServlet extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/INSERT_NAME_OF_SCHEMA?user=USERNAME&password=PASSWORD");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/finalproject?user=root&password=root");
 			st = conn.createStatement();			
 			
-			int id = Integer.parseInt(request.getParameter("INSERT USER ID PARAMETER"));
+			int id = Integer.parseInt(request.getParameter("userID"));
 			rs = st.executeQuery("SELECT * FROM Reviews WHERE UserID = '" + id + "'");
 			List<Review> l1 = new ArrayList<Review>();
 			boolean flag = false;
